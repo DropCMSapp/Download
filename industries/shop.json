@@ -1,0 +1,108 @@
+{
+    "hero": {
+        "tagline": "Curated Goods",
+        "title1": "Discover",
+        "title2": "Something Special",
+        "description": "A thoughtfully curated collection of quality products, handpicked for people who appreciate craftsmanship and design.",
+        "stat1_num": "500+",
+        "stat1_label": "Products",
+        "stat2_num": "50+",
+        "stat2_label": "Trusted Brands",
+        "stat3_num": "10K+",
+        "stat3_label": "Happy Customers"
+    },
+    "services": {
+        "title": "Collections",
+        "cards": [
+            {
+                "title": "Everyday Essentials",
+                "subtitle": "Daily Finds",
+                "price": "Carefully selected everyday items that combine quality and design. Products you'll reach for again and again, built to last and made to love.",
+                "items": [
+                    "Premium Materials",
+                    "Timeless Design",
+                    "Sustainably Sourced",
+                    "Gift Ready"
+                ],
+                "highlight": false
+            },
+            {
+                "title": "Signature Collection",
+                "subtitle": "Editor's Picks",
+                "price": "Our flagship selection of standout pieces from the world's most exciting makers. Each item is chosen for its quality, story, and ability to bring joy.",
+                "items": [
+                    "Artisan Crafted",
+                    "Limited Editions",
+                    "Exclusive Collaborations",
+                    "Curated Selection"
+                ],
+                "highlight": true
+            },
+            {
+                "title": "Gifts & Occasions",
+                "subtitle": "Meaningful Gifting",
+                "price": "Find the perfect gift for every occasion. From beautifully wrapped sets to personalized options, make every moment memorable.",
+                "items": [
+                    "Gift Boxes",
+                    "Personalization",
+                    "Corporate Gifting",
+                    "Seasonal Collections"
+                ],
+                "highlight": false
+            }
+        ]
+    },
+    "about": {
+        "title": "Our Philosophy",
+        "description": "We believe that the things you surround yourself with should bring you joy. Every product in our store is handpicked for its quality, design, and the story behind it. We work directly with makers and artisans who share our commitment to craftsmanship and sustainability."
+    },
+    "contact": {
+        "title": "Visit Us",
+        "address": "Your Street, Your City",
+        "company_name": "__SITE_NAME__",
+        "company_info": "__SITE_NAME__<br>Your Street Address<br>Your City<br>Your Country",
+        "competencies": [
+            "Curated Selection",
+            "Quality Products",
+            "Sustainable Sourcing",
+            "Gift Wrapping",
+            "Personal Shopping",
+            "Worldwide Shipping"
+        ],
+        "quote": "\"Have nothing in your houses that you do not know to be useful, or believe to be beautiful.\""
+    },
+    "footer": {
+        "description": "A curated shop where quality, design, and craftsmanship come together."
+    },
+    "hero_bg": {
+        "bg_image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&q=80",
+        "overlay_dark": "0.65",
+        "overlay_light": "0.60"
+    },
+    "settings": {
+        "ga_id": "",
+        "availability_status": "accent",
+        "theme_dark": "dark-emerald",
+        "theme_light": "light-forest"
+    },
+    "projects": {
+        "categories": [
+            {
+                "id": "home",
+                "title": "Home"
+            },
+            {
+                "id": "accessories",
+                "title": "Accessories"
+            },
+            {
+                "id": "gifts",
+                "title": "Gifts"
+            },
+            {
+                "id": "seasonal",
+                "title": "Seasonal"
+            }
+        ]
+    }
+}

@@ -1,0 +1,108 @@
+{
+    "hero": {
+        "tagline": "Technology Solutions",
+        "title1": "Build the",
+        "title2": "Future",
+        "description": "We design and develop cutting-edge software solutions that help businesses scale, innovate, and stay ahead of the curve.",
+        "stat1_num": "10+",
+        "stat1_label": "Years Shipping Code",
+        "stat2_num": "100+",
+        "stat2_label": "Products Launched",
+        "stat3_num": "99.9%",
+        "stat3_label": "Uptime SLA"
+    },
+    "services": {
+        "title": "What We Build",
+        "cards": [
+            {
+                "title": "Web Applications",
+                "subtitle": "Full-Stack Development",
+                "price": "Custom web applications built with modern frameworks and best practices. From MVPs to enterprise platforms, we deliver scalable solutions that perform.",
+                "items": [
+                    "React & Next.js",
+                    "API Development",
+                    "Cloud Architecture",
+                    "Performance Optimization"
+                ],
+                "highlight": false
+            },
+            {
+                "title": "SaaS Products",
+                "subtitle": "Product Engineering",
+                "price": "End-to-end product development for SaaS companies. We handle architecture, development, deployment, and ongoing iteration to help you find product-market fit faster.",
+                "items": [
+                    "Product Strategy",
+                    "Microservices",
+                    "CI/CD Pipelines",
+                    "Analytics & Monitoring"
+                ],
+                "highlight": true
+            },
+            {
+                "title": "Consulting & DevOps",
+                "subtitle": "Technical Advisory",
+                "price": "Expert guidance on architecture decisions, technology selection, and infrastructure optimization. We help teams work smarter and ship faster.",
+                "items": [
+                    "Architecture Review",
+                    "Infrastructure as Code",
+                    "Security Audits",
+                    "Team Augmentation"
+                ],
+                "highlight": false
+            }
+        ]
+    },
+    "about": {
+        "title": "About Us",
+        "description": "We're a team of engineers and product thinkers who love solving hard problems with elegant code. We've helped startups launch their first product and enterprises modernize legacy systems. Our approach is pragmatic: ship fast, iterate often, and never stop learning."
+    },
+    "contact": {
+        "title": "Let's Build Something",
+        "address": "Your Street, Your City",
+        "company_name": "__SITE_NAME__",
+        "company_info": "__SITE_NAME__<br>Your Street Address<br>Your City<br>Your Country",
+        "competencies": [
+            "Full-Stack Development",
+            "Cloud Architecture",
+            "DevOps & CI/CD",
+            "Product Strategy",
+            "Security",
+            "Performance Engineering"
+        ],
+        "quote": "\"Any sufficiently advanced technology is indistinguishable from magic.\""
+    },
+    "footer": {
+        "description": "Modern technology solutions that help businesses scale and innovate."
+    },
+    "hero_bg": {
+        "bg_image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80",
+        "overlay_dark": "0.65",
+        "overlay_light": "0.60"
+    },
+    "settings": {
+        "ga_id": "",
+        "availability_status": "accent",
+        "theme_dark": "dark-default",
+        "theme_light": "light-ocean"
+    },
+    "projects": {
+        "categories": [
+            {
+                "id": "web-apps",
+                "title": "Web Apps"
+            },
+            {
+                "id": "saas",
+                "title": "SaaS"
+            },
+            {
+                "id": "mobile",
+                "title": "Mobile"
+            },
+            {
+                "id": "infrastructure",
+                "title": "Infrastructure"
+            }
+        ]
+    }
+}

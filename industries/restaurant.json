@@ -1,0 +1,109 @@
+{
+    "hero": {
+        "tagline": "Welcome",
+        "title1": "A Taste of",
+        "title2": "Something Special",
+        "description": "\"Good food brings people together\"",
+        "stat1_num": "Fresh",
+        "stat1_label": "Daily Ingredients",
+        "stat2_num": "50+",
+        "stat2_label": "Menu Items",
+        "stat3_num": "4.8",
+        "stat3_label": "Guest Rating",
+        "bg_video": "",
+        "bg_image": "uploads/20260401_151227_69cd35db26552.jpg",
+        "overlay_dark": "0.65",
+        "overlay_light": "0.60"
+    },
+    "services": {
+        "title": "What We Offer",
+        "cards": [
+            {
+                "title": "Dine In",
+                "subtitle": "Restaurant",
+                "price": "Enjoy our full menu in a cozy, welcoming atmosphere. Perfect for date nights, family dinners, or celebrations.",
+                "items": [
+                    "Seasonal menu with local ingredients",
+                    "Curated wine & cocktail selection",
+                    "Private dining available",
+                    "Vegetarian & vegan options"
+                ],
+                "highlight": false
+            },
+            {
+                "title": "Catering",
+                "subtitle": "Events & Parties",
+                "price": "Let us bring the flavors to your event. Custom menus for corporate events, weddings, and private parties.",
+                "items": [
+                    "Custom menus for any occasion",
+                    "Corporate lunch packages",
+                    "Wedding & celebration catering",
+                    "Full-service setup & staff",
+                    "Dietary accommodation"
+                ],
+                "highlight": true
+            },
+            {
+                "title": "Takeaway",
+                "subtitle": "To Go",
+                "price": "Enjoy our dishes at home. Order online or call ahead for quick pickup.",
+                "items": [
+                    "Full menu available for takeaway",
+                    "Family meal deals",
+                    "Pre-order for quick pickup",
+                    "Weekly specials"
+                ],
+                "highlight": false
+            }
+        ]
+    },
+    "about": {
+        "title": "Our Story",
+        "description": "Born from a passion for great food and warm hospitality, our kitchen is where tradition meets creativity. Every dish tells a story, made with care using the finest seasonal ingredients. Whether you're here for a quick lunch or a leisurely dinner, we want every visit to feel special."
+    },
+    "contact": {
+        "title": "Visit Us",
+        "address": "Your Street, Your City",
+        "company_name": "__SITE_NAME__",
+        "company_info": "Your Street Address<br>Your City<br>Your Country<br><br>Open Hours:<br>Mon-Fri: 11:00 - 22:00<br>Sat-Sun: 12:00 - 23:00",
+        "competencies": [
+            "Fresh, seasonal cooking",
+            "Locally sourced ingredients",
+            "Handcrafted cocktails & natural wines",
+            "Private dining & events",
+            "Dietary accommodations",
+            "Warm, welcoming atmosphere"
+        ],
+        "quote": "\"Good food brings people together\""
+    },
+    "footer": {
+        "description": "A neighborhood restaurant serving fresh, seasonal dishes made with love and the finest local ingredients."
+    },
+    "hero_bg": {
+        "bg_image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&q=80",
+        "overlay_dark": "0.65",
+        "overlay_light": "0.60"
+    },
+    "settings": {
+        "ga_id": "",
+        "availability_status": "accent",
+        "theme_dark": "dark-amber",
+        "theme_light": "light",
+        "h1_style": "normal",
+        "industry_theme": "shop",
+        "showLanguageToggle": true,
+        "theme_id": "dark-rose"
+    },
+    "projects": {
+        "categories": [
+            {
+                "id": "menu",
+                "title": "Our Menu"
+            },
+            {
+                "id": "events",
+                "title": "Events & Specials"
+            }
+        ]
+    }
+}

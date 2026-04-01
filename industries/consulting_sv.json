@@ -1,0 +1,108 @@
+{
+    "hero": {
+        "tagline": "Strategisk Företagsrådgivning",
+        "title1": "Lyft Din",
+        "title2": "Affärsstrategi",
+        "description": "Vi samarbetar med ambitiösa organisationer för att frigöra tillväxt, effektivisera verksamheten och bygga varaktiga konkurrensfördelar.",
+        "stat1_num": "15+",
+        "stat1_label": "Års Erfarenhet",
+        "stat2_num": "200+",
+        "stat2_label": "Levererade Projekt",
+        "stat3_num": "98%",
+        "stat3_label": "Nöjda Kunder"
+    },
+    "services": {
+        "title": "Våra Tjänster",
+        "cards": [
+            {
+                "title": "Strategi & Tillväxt",
+                "subtitle": "Affärsutveckling",
+                "price": "Vi hjälper dig identifiera outnyttjade möjligheter och skapar handlingskraftiga färdplaner som driver hållbar intäktstillväxt och marknadsexpansion.",
+                "items": [
+                    "Marknadsanalys",
+                    "Tillväxtstrategi",
+                    "Konkurrenspositionering",
+                    "Intäktsoptimering"
+                ],
+                "highlight": false
+            },
+            {
+                "title": "Digital Transformation",
+                "subtitle": "Teknologi & Innovation",
+                "price": "Modernisera din verksamhet med skräddarsydda digitala strategier som förbättrar effektiviteten, stärker kundupplevelsen och framtidssäkrar ditt företag.",
+                "items": [
+                    "Processautomation",
+                    "Teknologisk Färdplan",
+                    "Förändringsledning",
+                    "Resultatanalys"
+                ],
+                "highlight": true
+            },
+            {
+                "title": "Ledarskapsrådgivning",
+                "subtitle": "Executive Coaching",
+                "price": "Stärk ditt ledarskapsteam med beprövade ramverk för beslutsfattande, teamkoordinering och organisatorisk excellens.",
+                "items": [
+                    "Executive Coaching",
+                    "Teamutveckling",
+                    "Organisationsdesign",
+                    "Successionsplanering"
+                ],
+                "highlight": false
+            }
+        ]
+    },
+    "about": {
+        "title": "Om Oss",
+        "description": "Vi är en specialiserad konsultfirma byggd på djup branschexpertis och ett genuint engagemang för våra kunders framgång. Vårt arbetssätt kombinerar datadriven insikt med praktiskt genomförande, så att varje strategi vi utvecklar omsätts i mätbara resultat."
+    },
+    "contact": {
+        "title": "Inled Ett Samtal",
+        "address": "Din Gata, Din Stad",
+        "company_name": "__SITE_NAME__",
+        "company_info": "__SITE_NAME__<br>Din Gatuadress<br>Din Stad<br>Ditt Land",
+        "competencies": [
+            "Strategisk Planering",
+            "Verksamhetsanalys",
+            "Förändringsledning",
+            "Digital Strategi",
+            "Ledarskapsutveckling",
+            "Processoptimering"
+        ],
+        "quote": "\"Det bästa sättet att förutsäga framtiden är att skapa den.\""
+    },
+    "footer": {
+        "description": "Strategisk rådgivning som omvandlar ambition till mätbara affärsresultat."
+    },
+    "hero_bg": {
+        "bg_image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80",
+        "overlay_dark": "0.65",
+        "overlay_light": "0.60"
+    },
+    "settings": {
+        "ga_id": "",
+        "availability_status": "accent",
+        "theme_dark": "dark-default",
+        "theme_light": "light-default"
+    },
+    "projects": {
+        "categories": [
+            {
+                "id": "strategi",
+                "title": "Strategi"
+            },
+            {
+                "id": "digitalt",
+                "title": "Digitalt"
+            },
+            {
+                "id": "ledarskap",
+                "title": "Ledarskap"
+            },
+            {
+                "id": "verksamhet",
+                "title": "Verksamhet"
+            }
+        ]
+    }
+}

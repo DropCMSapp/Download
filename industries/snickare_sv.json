@@ -1,0 +1,108 @@
+{
+    "hero": {
+        "tagline": "Mästerligt Snickeri",
+        "title1": "Byggt med",
+        "title2": "Hantverk",
+        "description": "Från skräddarsydda möbler till kompletta renoveringar — vi levererar precision och passion i varje projekt.",
+        "stat1_num": "25+",
+        "stat1_label": "Års Erfarenhet",
+        "stat2_num": "800+",
+        "stat2_label": "Genomförda Projekt",
+        "stat3_num": "100%",
+        "stat3_label": "Kvalitetsgaranti"
+    },
+    "services": {
+        "title": "Vårt Hantverk",
+        "cards": [
+            {
+                "title": "Specialmöbler",
+                "subtitle": "Måttbeställt Snickeri",
+                "price": "Handgjorda möbler designade för att passa ditt utrymme och din stil perfekt. Från matbord till inbyggda hyllor — varje möbel är gjord för att hålla i generationer.",
+                "items": [
+                    "Matbord & Stolar",
+                    "Hyllor & Förvaring",
+                    "Sovrumsmobler",
+                    "Skrivbord"
+                ],
+                "highlight": false
+            },
+            {
+                "title": "Kök & Inredning",
+                "subtitle": "Komplett Snickeritjänst",
+                "price": "Förvandla ditt hem med specialbyggda kök, garderober och inredningssnickeri. Vi hanterar allt från design till montering med noggrann uppmärksamhet på detaljer.",
+                "items": [
+                    "Köksluckor & Stommar",
+                    "Inbyggda Garderober",
+                    "Badrumsinredning",
+                    "Väggpaneler"
+                ],
+                "highlight": true
+            },
+            {
+                "title": "Renovering & Restaurering",
+                "subtitle": "Byggarbeten",
+                "price": "Oavsett om du renoverar ett modernt hem eller restaurerar en kulturbyggnad levererar vi strukturell expertis och djup respekt för materialet.",
+                "items": [
+                    "Husrenovering",
+                    "Kulturbyggnadsrestaurering",
+                    "Altan & Trädäck",
+                    "Byggsnickeri"
+                ],
+                "highlight": false
+            }
+        ]
+    },
+    "about": {
+        "title": "Om Vår Verkstad",
+        "description": "Vi är ett familjedrivet snickeri med över två decenniers erfarenhet. Varje projekt börjar med ett samtal och slutar med något du kan vara stolt över. Vi arbetar med hållbart utvunnet virke och traditionella tekniker, för vi tror att de bästa resultaten kommer av att respektera materialet."
+    },
+    "contact": {
+        "title": "Begär Fri Offert",
+        "address": "Din Gata, Din Stad",
+        "company_name": "__SITE_NAME__",
+        "company_info": "__SITE_NAME__<br>Din Gatuadress<br>Din Stad<br>Ditt Land",
+        "competencies": [
+            "Specialmöbler",
+            "Köksmontering",
+            "Renovering",
+            "Kulturrestaurering",
+            "Hållbara Material",
+            "Precisionssnickeri"
+        ],
+        "quote": "\"Detaljerna är inte detaljer. De skapar designen.\""
+    },
+    "footer": {
+        "description": "Mästerligt snickeri och inredning — byggt med precision, skapat med passion."
+    },
+    "hero_bg": {
+        "bg_image": "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=1920&q=80",
+        "overlay_dark": "0.65",
+        "overlay_light": "0.60"
+    },
+    "settings": {
+        "ga_id": "",
+        "availability_status": "accent",
+        "theme_dark": "dark-amber",
+        "theme_light": "light-warm"
+    },
+    "projects": {
+        "categories": [
+            {
+                "id": "mobler",
+                "title": "Möbler"
+            },
+            {
+                "id": "kok",
+                "title": "Kök"
+            },
+            {
+                "id": "renovering",
+                "title": "Renovering"
+            },
+            {
+                "id": "restaurering",
+                "title": "Restaurering"
+            }
+        ]
+    }
+}

@@ -1,0 +1,108 @@
+{
+    "hero": {
+        "tagline": "Teknologilösningar",
+        "title1": "Bygg",
+        "title2": "Framtiden",
+        "description": "Vi designar och utvecklar banbrytande mjukvarulösningar som hjälper företag att skala, förnya och ligga steget före.",
+        "stat1_num": "10+",
+        "stat1_label": "År av Kodleverans",
+        "stat2_num": "100+",
+        "stat2_label": "Lanserade Produkter",
+        "stat3_num": "99.9%",
+        "stat3_label": "Drifttid SLA"
+    },
+    "services": {
+        "title": "Vad Vi Bygger",
+        "cards": [
+            {
+                "title": "Webbapplikationer",
+                "subtitle": "Full-Stack-utveckling",
+                "price": "Skräddarsydda webbapplikationer byggda med moderna ramverk och best practices. Från MVP till enterpriseplattformar levererar vi skalbara lösningar som presterar.",
+                "items": [
+                    "React & Next.js",
+                    "API-utveckling",
+                    "Molnarkitektur",
+                    "Prestandaoptimering"
+                ],
+                "highlight": false
+            },
+            {
+                "title": "SaaS-produkter",
+                "subtitle": "Produktutveckling",
+                "price": "Komplett produktutveckling för SaaS-bolag. Vi hanterar arkitektur, utveckling, deployment och löpande iteration för att hjälpa dig hitta product-market fit snabbare.",
+                "items": [
+                    "Produktstrategi",
+                    "Mikrotjänster",
+                    "CI/CD-pipelines",
+                    "Analys & Övervakning"
+                ],
+                "highlight": true
+            },
+            {
+                "title": "Rådgivning & DevOps",
+                "subtitle": "Teknisk Konsultation",
+                "price": "Expertguidning kring arkitekturbeslut, teknikval och infrastrukturoptimering. Vi hjälper team att arbeta smartare och leverera snabbare.",
+                "items": [
+                    "Arkitekturgranskning",
+                    "Infrastructure as Code",
+                    "Säkerhetsgranskningar",
+                    "Teamförstärkning"
+                ],
+                "highlight": false
+            }
+        ]
+    },
+    "about": {
+        "title": "Om Oss",
+        "description": "Vi är ett team av ingenjörer och produkttänkare som älskar att lösa svåra problem med elegant kod. Vi har hjälpt startups att lansera sin första produkt och storföretag att modernisera legacysystem. Vårt arbetssätt är pragmatiskt: leverera snabbt, iterera ofta och aldrig sluta lära."
+    },
+    "contact": {
+        "title": "Låt Oss Bygga Något",
+        "address": "Din Gata, Din Stad",
+        "company_name": "__SITE_NAME__",
+        "company_info": "__SITE_NAME__<br>Din Gatuadress<br>Din Stad<br>Ditt Land",
+        "competencies": [
+            "Full-Stack-utveckling",
+            "Molnarkitektur",
+            "DevOps & CI/CD",
+            "Produktstrategi",
+            "Säkerhet",
+            "Prestandaoptimering"
+        ],
+        "quote": "\"Tillräckligt avancerad teknologi är oskiljbar från magi.\""
+    },
+    "footer": {
+        "description": "Moderna teknologilösningar som hjälper företag att skala och förnya sig."
+    },
+    "hero_bg": {
+        "bg_image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80",
+        "overlay_dark": "0.65",
+        "overlay_light": "0.60"
+    },
+    "settings": {
+        "ga_id": "",
+        "availability_status": "accent",
+        "theme_dark": "dark-default",
+        "theme_light": "light-ocean"
+    },
+    "projects": {
+        "categories": [
+            {
+                "id": "webbappar",
+                "title": "Webbappar"
+            },
+            {
+                "id": "saas",
+                "title": "SaaS"
+            },
+            {
+                "id": "mobil",
+                "title": "Mobil"
+            },
+            {
+                "id": "infrastruktur",
+                "title": "Infrastruktur"
+            }
+        ]
+    }
+}

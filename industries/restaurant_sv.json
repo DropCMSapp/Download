@@ -1,0 +1,112 @@
+{
+    "hero": {
+        "tagline": "Exklusiv Matupplevelse",
+        "title1": "Smaka det",
+        "title2": "Extraordinära",
+        "description": "En kulinarisk resa där säsongens råvaror möter kreativ passion, serverad i en atmosfär du sent glömmer.",
+        "stat1_num": "15+",
+        "stat1_label": "År av Excellens",
+        "stat2_num": "50K+",
+        "stat2_label": "Serverade Gäster",
+        "stat3_num": "4.9",
+        "stat3_label": "Snittbetyg",
+        "bg_video": "uploads/20260401_135531_69cd23d3b18f0.mp4",
+        "bg_image": "",
+        "overlay_dark": "0.65",
+        "overlay_light": "0.60"
+    },
+    "services": {
+        "title": "Våra Menyer",
+        "cards": [
+            {
+                "title": "Lunchmeny",
+                "subtitle": "Vardagar 11–14",
+                "price": "En förfinad middagsupplevelse med säsongsrätter lagade på närproducerade råvaror. Perfekt för en affärslunch eller en välförtjänt paus.",
+                "items": [
+                    "Säsongens Förrätt",
+                    "Valfri Huvudrätt",
+                    "Dagens Dessert",
+                    "Kaffe & Petit Fours"
+                ],
+                "highlight": false
+            },
+            {
+                "title": "Avsmakningmeny",
+                "subtitle": "Kockens Val",
+                "price": "Vår signaturupplevelse. Fem rätter som tar dig på en resa genom säsongens bästa smaker, var och en matchad med noggrant utvalda viner.",
+                "items": [
+                    "Fem Kurerade Rätter",
+                    "Vinpaket",
+                    "Amuse-Bouche",
+                    "Säsongens Råvaror"
+                ],
+                "highlight": true
+            },
+            {
+                "title": "À La Carte",
+                "subtitle": "Kvällsmeny",
+                "price": "Utforska vår kompletta kvällsmeny där klassiska tekniker möter modern kreativitet. Varje rätt berättar en historia om hantverk och passion.",
+                "items": [
+                    "Förrätter & Smårätter",
+                    "Fisk & Skaldjur",
+                    "Kött & Vilt",
+                    "Hantverksdessert"
+                ],
+                "highlight": false
+            }
+        ]
+    },
+    "about": {
+        "title": "Vår Historia",
+        "description": "Det som började som en dröm i ett litet kök har vuxit till en av stadens mest älskade matdestinationer. Vi hämtar våra råvaror från lokala gårdar och fiskare, och vår meny utvecklas med säsongerna. Här är varje måltid en upplevelse — skapad med omsorg och serverad med hjärta."
+    },
+    "contact": {
+        "title": "Boka Bord",
+        "address": "Din Gata, Din Stad",
+        "company_name": "__SITE_NAME__",
+        "company_info": "__SITE_NAME__<br>Din Gatuadress<br>Din Stad<br>Ditt Land",
+        "competencies": [
+            "Säsongsbaserad Meny",
+            "Vinrekommendationer",
+            "Privata Middagar",
+            "Catering",
+            "Avsmakningsmenyer",
+            "Lokala Råvaror"
+        ],
+        "quote": "\"Matlagning är en konst, men all konst kräver kunskap om tekniker och råvaror.\""
+    },
+    "footer": {
+        "description": "En exklusiv matupplevelse där säsongens råvaror och kreativ passion förenas."
+    },
+    "hero_bg": {
+        "bg_image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&q=80",
+        "overlay_dark": "0.65",
+        "overlay_light": "0.60"
+    },
+    "settings": {
+        "ga_id": "",
+        "availability_status": "accent",
+        "theme_dark": "dark-amber",
+        "theme_light": "light-warm"
+    },
+    "projects": {
+        "categories": [
+            {
+                "id": "ratter",
+                "title": "Signaturrätter"
+            },
+            {
+                "id": "miljo",
+                "title": "Miljö"
+            },
+            {
+                "id": "event",
+                "title": "Privata Event"
+            },
+            {
+                "id": "team",
+                "title": "Vårt Team"
+            }
+        ]
+    }
+}

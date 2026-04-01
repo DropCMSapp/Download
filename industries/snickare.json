@@ -1,0 +1,108 @@
+{
+    "hero": {
+        "tagline": "Master Carpentry",
+        "title1": "Built with",
+        "title2": "Craftsmanship",
+        "description": "From bespoke furniture to complete renovations, we bring precision and passion to every project we touch.",
+        "stat1_num": "25+",
+        "stat1_label": "Years of Experience",
+        "stat2_num": "800+",
+        "stat2_label": "Projects Built",
+        "stat3_num": "100%",
+        "stat3_label": "Quality Guaranteed"
+    },
+    "services": {
+        "title": "Our Craft",
+        "cards": [
+            {
+                "title": "Custom Furniture",
+                "subtitle": "Bespoke Woodwork",
+                "price": "Handcrafted furniture designed to fit your space and style perfectly. From dining tables to built-in shelving, every piece is made to last generations.",
+                "items": [
+                    "Dining Tables & Chairs",
+                    "Shelving & Storage",
+                    "Bedroom Furniture",
+                    "Office Desks"
+                ],
+                "highlight": false
+            },
+            {
+                "title": "Kitchens & Interiors",
+                "subtitle": "Complete Joinery",
+                "price": "Transform your home with custom kitchens, wardrobes, and interior woodwork. We handle everything from design to installation with meticulous attention to detail.",
+                "items": [
+                    "Kitchen Cabinets",
+                    "Built-in Wardrobes",
+                    "Bathroom Vanities",
+                    "Interior Paneling"
+                ],
+                "highlight": true
+            },
+            {
+                "title": "Renovations & Restoration",
+                "subtitle": "Structural Work",
+                "price": "Whether you're renovating a modern home or restoring a heritage building, we bring structural expertise and a deep respect for materials to every job.",
+                "items": [
+                    "Home Renovations",
+                    "Heritage Restoration",
+                    "Deck & Patio",
+                    "Structural Carpentry"
+                ],
+                "highlight": false
+            }
+        ]
+    },
+    "about": {
+        "title": "About Our Workshop",
+        "description": "We're a family-run carpentry workshop with over two decades of experience. Every project begins with a conversation and ends with something you'll be proud to call yours. We work with sustainably sourced timber and traditional techniques, because we believe the best results come from respecting the material."
+    },
+    "contact": {
+        "title": "Get a Free Quote",
+        "address": "Your Street, Your City",
+        "company_name": "__SITE_NAME__",
+        "company_info": "__SITE_NAME__<br>Your Street Address<br>Your City<br>Your Country",
+        "competencies": [
+            "Custom Furniture",
+            "Kitchen Installation",
+            "Renovations",
+            "Heritage Restoration",
+            "Sustainable Materials",
+            "Precision Joinery"
+        ],
+        "quote": "\"The details are not the details. They make the design.\""
+    },
+    "footer": {
+        "description": "Master carpentry and joinery — built with precision, crafted with passion."
+    },
+    "hero_bg": {
+        "bg_image": "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=1920&q=80",
+        "overlay_dark": "0.65",
+        "overlay_light": "0.60"
+    },
+    "settings": {
+        "ga_id": "",
+        "availability_status": "accent",
+        "theme_dark": "dark-amber",
+        "theme_light": "light-warm"
+    },
+    "projects": {
+        "categories": [
+            {
+                "id": "furniture",
+                "title": "Furniture"
+            },
+            {
+                "id": "kitchens",
+                "title": "Kitchens"
+            },
+            {
+                "id": "renovations",
+                "title": "Renovations"
+            },
+            {
+                "id": "restoration",
+                "title": "Restoration"
+            }
+        ]
+    }
+}

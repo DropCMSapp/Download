@@ -1,0 +1,108 @@
+{
+    "hero": {
+        "tagline": "Professional Plumbing & HVAC",
+        "title1": "Comfort You",
+        "title2": "Can Count On",
+        "description": "Expert plumbing, heating, and ventilation services for homes and businesses. Fast response, lasting solutions.",
+        "stat1_num": "20+",
+        "stat1_label": "Years in the Trade",
+        "stat2_num": "3000+",
+        "stat2_label": "Jobs Completed",
+        "stat3_num": "24/7",
+        "stat3_label": "Emergency Service"
+    },
+    "services": {
+        "title": "Our Services",
+        "cards": [
+            {
+                "title": "Plumbing",
+                "subtitle": "Installation & Repair",
+                "price": "From leaking faucets to complete bathroom renovations, our certified plumbers deliver reliable workmanship backed by years of hands-on experience.",
+                "items": [
+                    "Pipe Installation",
+                    "Leak Detection & Repair",
+                    "Bathroom Renovation",
+                    "Drain Cleaning"
+                ],
+                "highlight": false
+            },
+            {
+                "title": "Heating & Cooling",
+                "subtitle": "Climate Systems",
+                "price": "Stay comfortable year-round with expert heating and cooling solutions. We install, maintain, and repair all major systems to keep your indoor climate perfect.",
+                "items": [
+                    "Heat Pump Installation",
+                    "Underfloor Heating",
+                    "AC Installation",
+                    "System Maintenance"
+                ],
+                "highlight": true
+            },
+            {
+                "title": "Ventilation",
+                "subtitle": "Air Quality",
+                "price": "Proper ventilation is essential for health and energy efficiency. We design and install ventilation systems that ensure fresh, clean air throughout your property.",
+                "items": [
+                    "Ventilation Design",
+                    "Duct Installation",
+                    "Air Quality Testing",
+                    "Energy Recovery"
+                ],
+                "highlight": false
+            }
+        ]
+    },
+    "about": {
+        "title": "About Us",
+        "description": "We're a team of certified professionals who take pride in doing the job right the first time. With over two decades of experience in plumbing, heating, and ventilation, we've built our reputation on honest work, fair pricing, and solutions that stand the test of time."
+    },
+    "contact": {
+        "title": "Get in Touch",
+        "address": "Your Street, Your City",
+        "company_name": "__SITE_NAME__",
+        "company_info": "__SITE_NAME__<br>Your Street Address<br>Your City<br>Your Country",
+        "competencies": [
+            "Plumbing",
+            "Heating Systems",
+            "Air Conditioning",
+            "Ventilation",
+            "Emergency Service",
+            "Energy Efficiency"
+        ],
+        "quote": "\"The bitterness of poor quality remains long after the sweetness of low price is forgotten.\""
+    },
+    "footer": {
+        "description": "Professional plumbing and HVAC services — reliable comfort for homes and businesses."
+    },
+    "hero_bg": {
+        "bg_image": "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1920&q=80",
+        "overlay_dark": "0.65",
+        "overlay_light": "0.60"
+    },
+    "settings": {
+        "ga_id": "",
+        "availability_status": "accent",
+        "theme_dark": "dark-default",
+        "theme_light": "light-default"
+    },
+    "projects": {
+        "categories": [
+            {
+                "id": "plumbing",
+                "title": "Plumbing"
+            },
+            {
+                "id": "heating",
+                "title": "Heating"
+            },
+            {
+                "id": "ventilation",
+                "title": "Ventilation"
+            },
+            {
+                "id": "renovations",
+                "title": "Renovations"
+            }
+        ]
+    }
+}

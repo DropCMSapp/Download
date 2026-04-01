@@ -1,0 +1,108 @@
+{
+    "hero": {
+        "tagline": "Premium Hair Studio",
+        "title1": "Your Style,",
+        "title2": "Perfected",
+        "description": "Where artistry meets precision. Experience personalized hair care that brings out your best self.",
+        "stat1_num": "12+",
+        "stat1_label": "Years in the Chair",
+        "stat2_num": "5000+",
+        "stat2_label": "Happy Clients",
+        "stat3_num": "100%",
+        "stat3_label": "Passion for Hair"
+    },
+    "services": {
+        "title": "Our Services",
+        "cards": [
+            {
+                "title": "Cut & Style",
+                "subtitle": "Precision Haircutting",
+                "price": "From classic cuts to trend-setting styles, every visit begins with a thorough consultation to ensure your look reflects your personality and lifestyle.",
+                "items": [
+                    "Women's Cut & Style",
+                    "Men's Cut & Grooming",
+                    "Children's Haircuts",
+                    "Blow Dry & Finish"
+                ],
+                "highlight": false
+            },
+            {
+                "title": "Color & Highlights",
+                "subtitle": "Creative Color",
+                "price": "Transform your look with expert color services. We use premium, low-damage products to achieve vibrant, long-lasting results that keep your hair healthy.",
+                "items": [
+                    "Full Color",
+                    "Balayage & Ombré",
+                    "Highlights & Lowlights",
+                    "Color Correction"
+                ],
+                "highlight": true
+            },
+            {
+                "title": "Treatments & Care",
+                "subtitle": "Hair Wellness",
+                "price": "Restore and revitalize your hair with our luxury treatments. From deep conditioning to scalp therapy, we bring damaged hair back to life.",
+                "items": [
+                    "Deep Conditioning",
+                    "Keratin Treatment",
+                    "Scalp Therapy",
+                    "Bridal & Event Styling"
+                ],
+                "highlight": false
+            }
+        ]
+    },
+    "about": {
+        "title": "About the Studio",
+        "description": "Our studio is a creative sanctuary where skilled stylists and premium products come together. We believe that great hair isn't just about looking good — it's about feeling confident every single day. Step in and let us take care of the rest."
+    },
+    "contact": {
+        "title": "Book Your Visit",
+        "address": "Your Street, Your City",
+        "company_name": "__SITE_NAME__",
+        "company_info": "__SITE_NAME__<br>Your Street Address<br>Your City<br>Your Country",
+        "competencies": [
+            "Precision Cutting",
+            "Creative Coloring",
+            "Bridal Styling",
+            "Hair Restoration",
+            "Trend Expertise",
+            "Personalized Consultation"
+        ],
+        "quote": "\"Life is too short for boring hair.\""
+    },
+    "footer": {
+        "description": "A premium hair studio dedicated to making you look and feel extraordinary."
+    },
+    "hero_bg": {
+        "bg_image": "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&q=80",
+        "overlay_dark": "0.65",
+        "overlay_light": "0.60"
+    },
+    "settings": {
+        "ga_id": "",
+        "availability_status": "accent",
+        "theme_dark": "dark-rose",
+        "theme_light": "light-warm"
+    },
+    "projects": {
+        "categories": [
+            {
+                "id": "cuts",
+                "title": "Cuts & Styles"
+            },
+            {
+                "id": "color",
+                "title": "Color"
+            },
+            {
+                "id": "bridal",
+                "title": "Bridal"
+            },
+            {
+                "id": "transformations",
+                "title": "Transformations"
+            }
+        ]
+    }
+}

@@ -1,0 +1,108 @@
+{
+    "hero": {
+        "tagline": "Strategic Business Consulting",
+        "title1": "Elevate Your",
+        "title2": "Business Strategy",
+        "description": "We partner with ambitious organizations to unlock growth, streamline operations, and build lasting competitive advantages.",
+        "stat1_num": "15+",
+        "stat1_label": "Years Experience",
+        "stat2_num": "200+",
+        "stat2_label": "Projects Delivered",
+        "stat3_num": "98%",
+        "stat3_label": "Client Retention"
+    },
+    "services": {
+        "title": "Our Services",
+        "cards": [
+            {
+                "title": "Strategy & Growth",
+                "subtitle": "Business Development",
+                "price": "We help you identify untapped opportunities and craft actionable roadmaps that drive sustainable revenue growth and market expansion.",
+                "items": [
+                    "Market Analysis",
+                    "Growth Strategy",
+                    "Competitive Positioning",
+                    "Revenue Optimization"
+                ],
+                "highlight": false
+            },
+            {
+                "title": "Digital Transformation",
+                "subtitle": "Technology & Innovation",
+                "price": "Modernize your operations with tailored digital strategies that improve efficiency, enhance customer experience, and future-proof your business.",
+                "items": [
+                    "Process Automation",
+                    "Technology Roadmap",
+                    "Change Management",
+                    "Performance Analytics"
+                ],
+                "highlight": true
+            },
+            {
+                "title": "Leadership Advisory",
+                "subtitle": "Executive Coaching",
+                "price": "Empower your leadership team with proven frameworks for decision-making, team alignment, and organizational excellence.",
+                "items": [
+                    "Executive Coaching",
+                    "Team Development",
+                    "Organizational Design",
+                    "Succession Planning"
+                ],
+                "highlight": false
+            }
+        ]
+    },
+    "about": {
+        "title": "About Us",
+        "description": "We are a boutique consulting firm built on deep industry expertise and a genuine commitment to our clients' success. Our approach combines data-driven insights with hands-on execution, ensuring that every strategy we develop translates into measurable results."
+    },
+    "contact": {
+        "title": "Start a Conversation",
+        "address": "Your Street, Your City",
+        "company_name": "__SITE_NAME__",
+        "company_info": "__SITE_NAME__<br>Your Street Address<br>Your City<br>Your Country",
+        "competencies": [
+            "Strategic Planning",
+            "Business Analysis",
+            "Change Management",
+            "Digital Strategy",
+            "Leadership Development",
+            "Process Optimization"
+        ],
+        "quote": "\"The best way to predict the future is to create it.\""
+    },
+    "footer": {
+        "description": "Strategic consulting that transforms ambition into measurable business results."
+    },
+    "hero_bg": {
+        "bg_image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80",
+        "overlay_dark": "0.65",
+        "overlay_light": "0.60"
+    },
+    "settings": {
+        "ga_id": "",
+        "availability_status": "accent",
+        "theme_dark": "dark-default",
+        "theme_light": "light-default"
+    },
+    "projects": {
+        "categories": [
+            {
+                "id": "strategy",
+                "title": "Strategy"
+            },
+            {
+                "id": "digital",
+                "title": "Digital"
+            },
+            {
+                "id": "leadership",
+                "title": "Leadership"
+            },
+            {
+                "id": "operations",
+                "title": "Operations"
+            }
+        ]
+    }
+}

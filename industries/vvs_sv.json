@@ -1,0 +1,108 @@
+{
+    "hero": {
+        "tagline": "Professionell VVS-teknik",
+        "title1": "Komfort Du",
+        "title2": "Kan Lita På",
+        "description": "Expert inom rörmokeri, värme och ventilation för hem och företag. Snabb respons, hållbara lösningar.",
+        "stat1_num": "20+",
+        "stat1_label": "År i Branschen",
+        "stat2_num": "3000+",
+        "stat2_label": "Utförda Jobb",
+        "stat3_num": "24/7",
+        "stat3_label": "Jourservice"
+    },
+    "services": {
+        "title": "Våra Tjänster",
+        "cards": [
+            {
+                "title": "Rörmokeri",
+                "subtitle": "Installation & Reparation",
+                "price": "Från droppande kranar till kompletta badrumsrenoveringar levererar våra certifierade rörmokare pålitligt arbete med mångårig erfarenhet som grund.",
+                "items": [
+                    "Rörinstallation",
+                    "Läcksökning & Reparation",
+                    "Badrumsrenovering",
+                    "Avloppsspolning"
+                ],
+                "highlight": false
+            },
+            {
+                "title": "Värme & Kyla",
+                "subtitle": "Klimatsystem",
+                "price": "Håll dig bekväm året runt med expertlösningar för värme och kyla. Vi installerar, underhåller och reparerar alla större system för ett perfekt inomhusklimat.",
+                "items": [
+                    "Värmepumpsinstallation",
+                    "Golvvärme",
+                    "AC-installation",
+                    "Systemunderhåll"
+                ],
+                "highlight": true
+            },
+            {
+                "title": "Ventilation",
+                "subtitle": "Luftkvalitet",
+                "price": "Rätt ventilation är avgörande för hälsa och energieffektivitet. Vi projekterar och installerar ventilationssystem som säkerställer frisk, ren luft i hela fastigheten.",
+                "items": [
+                    "Ventilationsprojektering",
+                    "Kanalinstallation",
+                    "Luftkvalitetstestning",
+                    "Värmeåtervinning"
+                ],
+                "highlight": false
+            }
+        ]
+    },
+    "about": {
+        "title": "Om Oss",
+        "description": "Vi är ett team av certifierade yrkesmänniskor som tar stolthet i att göra jobbet rätt från start. Med över två decenniers erfarenhet inom VVS har vi byggt vårt rykte på ärligt arbete, rättvisa priser och lösningar som håller över tid."
+    },
+    "contact": {
+        "title": "Kontakta Oss",
+        "address": "Din Gata, Din Stad",
+        "company_name": "__SITE_NAME__",
+        "company_info": "__SITE_NAME__<br>Din Gatuadress<br>Din Stad<br>Ditt Land",
+        "competencies": [
+            "Rörmokeri",
+            "Värmesystem",
+            "Luftkonditionering",
+            "Ventilation",
+            "Jourservice",
+            "Energieffektivitet"
+        ],
+        "quote": "\"Bitterheten av dålig kvalitet kvarstår långt efter att glädjen av ett lågt pris är bortglömd.\""
+    },
+    "footer": {
+        "description": "Professionell VVS-teknik — pålitlig komfort för hem och företag."
+    },
+    "hero_bg": {
+        "bg_image": "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1920&q=80",
+        "overlay_dark": "0.65",
+        "overlay_light": "0.60"
+    },
+    "settings": {
+        "ga_id": "",
+        "availability_status": "accent",
+        "theme_dark": "dark-default",
+        "theme_light": "light-default"
+    },
+    "projects": {
+        "categories": [
+            {
+                "id": "ror",
+                "title": "Rörmokeri"
+            },
+            {
+                "id": "varme",
+                "title": "Värme"
+            },
+            {
+                "id": "ventilation",
+                "title": "Ventilation"
+            },
+            {
+                "id": "renovering",
+                "title": "Renovering"
+            }
+        ]
+    }
+}

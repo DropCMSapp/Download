@@ -1,0 +1,108 @@
+{
+    "hero": {
+        "tagline": "Pålitliga Transportlösningar",
+        "title1": "Vi Driver Din",
+        "title2": "Verksamhet Framåt",
+        "description": "Professionella logistik- och transporttjänster byggda på pålitlighet, effektivitet och ett löfte om leverans i tid.",
+        "stat1_num": "20+",
+        "stat1_label": "År på Vägen",
+        "stat2_num": "50K+",
+        "stat2_label": "Genomförda Leveranser",
+        "stat3_num": "99.5%",
+        "stat3_label": "Leverans i Tid"
+    },
+    "services": {
+        "title": "Våra Tjänster",
+        "cards": [
+            {
+                "title": "Lokalt & Regionalt",
+                "subtitle": "Expressleverans",
+                "price": "Snabb och pålitlig lokal och regional transport. Från expressleverans samma dag till schemalagda rutter håller vi din leveranskedja igång.",
+                "items": [
+                    "Leverans Samma Dag",
+                    "Schemalagda Rutter",
+                    "Sista-milen-lösningar",
+                    "Temperaturkontrollerat"
+                ],
+                "highlight": false
+            },
+            {
+                "title": "Frakt & Logistik",
+                "subtitle": "Fullskalig Transport",
+                "price": "Omfattande fraktlösningar för företag i alla storlekar. Vi hanterar allt från ruttplanering till tullklarering, så att du kan fokusera på din kärnverksamhet.",
+                "items": [
+                    "Hellass (FTL)",
+                    "Dellast (LTL)",
+                    "Gränsöverskridande Transport",
+                    "Lagerhållning"
+                ],
+                "highlight": true
+            },
+            {
+                "title": "Specialtransport",
+                "subtitle": "Anpassade Lösningar",
+                "price": "Hantering av känsligt, överdimensionerat eller värdefullt gods kräver expertis. Vår specialflotta och utbildade personal säkerställer att dina varor anländer säkert, varje gång.",
+                "items": [
+                    "Ömtåligt Gods",
+                    "Tungt & Överdimensionerat",
+                    "Värdegods",
+                    "Farligt Gods"
+                ],
+                "highlight": false
+            }
+        ]
+    },
+    "about": {
+        "title": "Om Vårt Företag",
+        "description": "Byggt på en grund av pålitlighet och hårt arbete har vi vuxit från en enskild lastbil till ett fullserviceföretag inom transport. Vi investerar i moderna fordon, GPS-spårning och rigorösa säkerhetsstandarder för vi vet att ditt gods är din verksamhet. När vi säger i tid menar vi det."
+    },
+    "contact": {
+        "title": "Begär Offert",
+        "address": "Din Gata, Din Stad",
+        "company_name": "__SITE_NAME__",
+        "company_info": "__SITE_NAME__<br>Din Gatuadress<br>Din Stad<br>Ditt Land",
+        "competencies": [
+            "Fraktlogistik",
+            "Expressleverans",
+            "Lagerhållning",
+            "Ruttoptimering",
+            "GPS-spårning",
+            "Säkerhetscertifierad"
+        ],
+        "quote": "\"Vägen till framgång är alltid under konstruktion — och vi känner varje mil av den.\""
+    },
+    "footer": {
+        "description": "Professionell transport och logistik — pålitlighet på varje rutt."
+    },
+    "hero_bg": {
+        "bg_image": "https://images.unsplash.com/photo-1494412574643-ff11b0a5eb19?w=1920&q=80",
+        "overlay_dark": "0.65",
+        "overlay_light": "0.60"
+    },
+    "settings": {
+        "ga_id": "",
+        "availability_status": "accent",
+        "theme_dark": "dark-emerald",
+        "theme_light": "light-default"
+    },
+    "projects": {
+        "categories": [
+            {
+                "id": "flotta",
+                "title": "Vår Flotta"
+            },
+            {
+                "id": "logistik",
+                "title": "Logistik"
+            },
+            {
+                "id": "special",
+                "title": "Specialtransport"
+            },
+            {
+                "id": "lager",
+                "title": "Lagerhållning"
+            }
+        ]
+    }
+}

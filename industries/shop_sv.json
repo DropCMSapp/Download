@@ -1,0 +1,108 @@
+{
+    "hero": {
+        "tagline": "Handplockade Produkter",
+        "title1": "Upptäck",
+        "title2": "Något Speciellt",
+        "description": "En omsorgsfullt kurerad kollektion av kvalitetsprodukter, handplockade för dig som uppskattar hantverk och design.",
+        "stat1_num": "500+",
+        "stat1_label": "Produkter",
+        "stat2_num": "50+",
+        "stat2_label": "Betrodda Varumärken",
+        "stat3_num": "10K+",
+        "stat3_label": "Nöjda Kunder"
+    },
+    "services": {
+        "title": "Kollektioner",
+        "cards": [
+            {
+                "title": "Vardagsfavoriter",
+                "subtitle": "Dagliga Fynd",
+                "price": "Noggrant utvalda vardagsprodukter som kombinerar kvalitet och design. Produkter du kommer att älska att använda om och om igen, byggda för att hålla.",
+                "items": [
+                    "Premiummaterial",
+                    "Tidlös Design",
+                    "Hållbart Producerat",
+                    "Presentfärdigt"
+                ],
+                "highlight": false
+            },
+            {
+                "title": "Signaturkollektion",
+                "subtitle": "Redaktionens Val",
+                "price": "Vårt flaggskepsurval av utstickande produkter från världens mest spännande tillverkare. Varje föremål är valt för sin kvalitet, historia och förmåga att sprida glädje.",
+                "items": [
+                    "Hantverkstillverkat",
+                    "Limiterade Upplagor",
+                    "Exklusiva Samarbeten",
+                    "Kurerat Urval"
+                ],
+                "highlight": true
+            },
+            {
+                "title": "Presenter & Tillfällen",
+                "subtitle": "Meningsfull Presentgivning",
+                "price": "Hitta den perfekta presenten för varje tillfälle. Från vackert inslagna set till personliga alternativ — gör varje ögonblick minnesvärt.",
+                "items": [
+                    "Presentboxar",
+                    "Personalisering",
+                    "Företagspresenter",
+                    "Säsongskollektion"
+                ],
+                "highlight": false
+            }
+        ]
+    },
+    "about": {
+        "title": "Vår Filosofi",
+        "description": "Vi tror att sakerna du omger dig med ska ge dig glädje. Varje produkt i vår butik är handplockad för sin kvalitet, design och berättelsen bakom den. Vi arbetar direkt med tillverkare och hantverkare som delar vårt engagemang för hantverk och hållbarhet."
+    },
+    "contact": {
+        "title": "Besök Oss",
+        "address": "Din Gata, Din Stad",
+        "company_name": "__SITE_NAME__",
+        "company_info": "__SITE_NAME__<br>Din Gatuadress<br>Din Stad<br>Ditt Land",
+        "competencies": [
+            "Kurerat Urval",
+            "Kvalitetsprodukter",
+            "Hållbar Sourcing",
+            "Presentinslagning",
+            "Personlig Shopping",
+            "Världsomspännande Frakt"
+        ],
+        "quote": "\"Ha inget i ditt hem som du inte vet är användbart, eller tror är vackert.\""
+    },
+    "footer": {
+        "description": "En kurerad butik där kvalitet, design och hantverk förenas."
+    },
+    "hero_bg": {
+        "bg_image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&q=80",
+        "overlay_dark": "0.65",
+        "overlay_light": "0.60"
+    },
+    "settings": {
+        "ga_id": "",
+        "availability_status": "accent",
+        "theme_dark": "dark-emerald",
+        "theme_light": "light-forest"
+    },
+    "projects": {
+        "categories": [
+            {
+                "id": "hem",
+                "title": "Hem"
+            },
+            {
+                "id": "accessoarer",
+                "title": "Accessoarer"
+            },
+            {
+                "id": "presenter",
+                "title": "Presenter"
+            },
+            {
+                "id": "sasong",
+                "title": "Säsong"
+            }
+        ]
+    }
+}

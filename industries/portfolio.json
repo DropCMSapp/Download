@@ -1,0 +1,108 @@
+{
+    "hero": {
+        "tagline": "Creative Design Studio",
+        "title1": "Design That",
+        "title2": "Speaks Volumes",
+        "description": "Thoughtful, purposeful design that elevates brands and creates meaningful digital experiences.",
+        "stat1_num": "10+",
+        "stat1_label": "Years in Design",
+        "stat2_num": "150+",
+        "stat2_label": "Projects Completed",
+        "stat3_num": "40+",
+        "stat3_label": "Brand Identities"
+    },
+    "services": {
+        "title": "Services",
+        "cards": [
+            {
+                "title": "Brand Identity",
+                "subtitle": "Visual Strategy",
+                "price": "Build a brand that resonates. From logo design to complete visual systems, we create cohesive identities that tell your story and connect with your audience.",
+                "items": [
+                    "Logo Design",
+                    "Brand Guidelines",
+                    "Visual Identity Systems",
+                    "Brand Strategy"
+                ],
+                "highlight": false
+            },
+            {
+                "title": "Web & Digital",
+                "subtitle": "Digital Design",
+                "price": "Beautiful, functional websites and digital products designed with the user in mind. Every pixel serves a purpose, every interaction feels intuitive.",
+                "items": [
+                    "Website Design",
+                    "UI/UX Design",
+                    "Responsive Layouts",
+                    "Interactive Prototypes"
+                ],
+                "highlight": true
+            },
+            {
+                "title": "Print & Editorial",
+                "subtitle": "Graphic Design",
+                "price": "From brochures to packaging, we craft print materials that demand attention and communicate your message with clarity and elegance.",
+                "items": [
+                    "Editorial Layout",
+                    "Packaging Design",
+                    "Marketing Materials",
+                    "Art Direction"
+                ],
+                "highlight": false
+            }
+        ]
+    },
+    "about": {
+        "title": "About",
+        "description": "I'm a designer who believes that great design is invisible — it just works. With a background spanning brand identity, digital products, and editorial design, I bring a holistic perspective to every project. The goal is always the same: create something that looks beautiful and works brilliantly."
+    },
+    "contact": {
+        "title": "Start a Project",
+        "address": "Your Street, Your City",
+        "company_name": "__SITE_NAME__",
+        "company_info": "__SITE_NAME__<br>Your Street Address<br>Your City<br>Your Country",
+        "competencies": [
+            "Brand Identity",
+            "Web Design",
+            "UI/UX",
+            "Typography",
+            "Art Direction",
+            "Creative Strategy"
+        ],
+        "quote": "\"Design is not just what it looks like. Design is how it works.\""
+    },
+    "footer": {
+        "description": "A creative studio crafting purposeful design that connects brands with people."
+    },
+    "hero_bg": {
+        "bg_image": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1920&q=80",
+        "overlay_dark": "0.65",
+        "overlay_light": "0.60"
+    },
+    "settings": {
+        "ga_id": "",
+        "availability_status": "accent",
+        "theme_dark": "dark-default",
+        "theme_light": "light-ocean"
+    },
+    "projects": {
+        "categories": [
+            {
+                "id": "branding",
+                "title": "Branding"
+            },
+            {
+                "id": "web",
+                "title": "Web"
+            },
+            {
+                "id": "print",
+                "title": "Print"
+            },
+            {
+                "id": "photography",
+                "title": "Photography"
+            }
+        ]
+    }
+}

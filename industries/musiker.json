@@ -1,0 +1,108 @@
+{
+    "hero": {
+        "tagline": "Professional Musician",
+        "title1": "Feel the",
+        "title2": "Music",
+        "description": "Captivating live performances and studio sessions that create unforgettable sonic experiences.",
+        "stat1_num": "20+",
+        "stat1_label": "Years Performing",
+        "stat2_num": "300+",
+        "stat2_label": "Live Shows",
+        "stat3_num": "50+",
+        "stat3_label": "Recordings"
+    },
+    "services": {
+        "title": "What I Offer",
+        "cards": [
+            {
+                "title": "Live Performance",
+                "subtitle": "Events & Venues",
+                "price": "Bring your event to life with a tailored live performance. From intimate gatherings to large-scale events, every show is crafted to match the moment.",
+                "items": [
+                    "Corporate Events",
+                    "Private Parties",
+                    "Festival Sets",
+                    "Wedding Entertainment"
+                ],
+                "highlight": false
+            },
+            {
+                "title": "Studio Sessions",
+                "subtitle": "Recording & Production",
+                "price": "Professional session work and production services. Whether you need a featured performance or a full arrangement, I bring musicality and precision to every track.",
+                "items": [
+                    "Session Recording",
+                    "Arrangement",
+                    "Music Production",
+                    "Mixing Collaboration"
+                ],
+                "highlight": true
+            },
+            {
+                "title": "Teaching & Workshops",
+                "subtitle": "Music Education",
+                "price": "Personalized lessons and group workshops for all skill levels. Learn technique, theory, and the art of musical expression from an experienced performer.",
+                "items": [
+                    "Private Lessons",
+                    "Group Workshops",
+                    "Masterclasses",
+                    "Online Coaching"
+                ],
+                "highlight": false
+            }
+        ]
+    },
+    "about": {
+        "title": "About Me",
+        "description": "Music has been my language for over two decades. From smoky jazz clubs to grand concert halls, I've dedicated my life to the craft of sound. Every performance is a conversation — between the music, the audience, and the moment."
+    },
+    "contact": {
+        "title": "Let's Make Music",
+        "address": "Your Street, Your City",
+        "company_name": "__SITE_NAME__",
+        "company_info": "__SITE_NAME__<br>Your Street Address<br>Your City<br>Your Country",
+        "competencies": [
+            "Live Performance",
+            "Studio Recording",
+            "Music Production",
+            "Arrangement",
+            "Music Education",
+            "Event Entertainment"
+        ],
+        "quote": "\"Where words fail, music speaks.\""
+    },
+    "footer": {
+        "description": "Professional musician delivering unforgettable performances and studio excellence."
+    },
+    "hero_bg": {
+        "bg_image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1920&q=80",
+        "overlay_dark": "0.65",
+        "overlay_light": "0.60"
+    },
+    "settings": {
+        "ga_id": "",
+        "availability_status": "accent",
+        "theme_dark": "dark-violet",
+        "theme_light": "light-default"
+    },
+    "projects": {
+        "categories": [
+            {
+                "id": "live",
+                "title": "Live"
+            },
+            {
+                "id": "studio",
+                "title": "Studio"
+            },
+            {
+                "id": "collaborations",
+                "title": "Collaborations"
+            },
+            {
+                "id": "teaching",
+                "title": "Teaching"
+            }
+        ]
+    }
+}

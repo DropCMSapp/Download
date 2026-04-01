@@ -1,0 +1,108 @@
+{
+    "hero": {
+        "tagline": "Premiumsalong",
+        "title1": "Din Stil,",
+        "title2": "Fulländad",
+        "description": "Där konstnärlighet möter precision. Upplev personlig hårvård som lyfter fram det bästa i dig.",
+        "stat1_num": "12+",
+        "stat1_label": "År i Stolen",
+        "stat2_num": "5000+",
+        "stat2_label": "Nöjda Kunder",
+        "stat3_num": "100%",
+        "stat3_label": "Passion för Hår"
+    },
+    "services": {
+        "title": "Våra Tjänster",
+        "cards": [
+            {
+                "title": "Klippning & Styling",
+                "subtitle": "Precisionsklippning",
+                "price": "Från klassiska frisyrer till trendiga stilar börjar varje besök med en grundlig konsultation för att säkerställa att din look speglar din personlighet och livsstil.",
+                "items": [
+                    "Damklippning & Styling",
+                    "Herrklippning & Skäggtrim",
+                    "Barnklippning",
+                    "Föning & Styling"
+                ],
+                "highlight": false
+            },
+            {
+                "title": "Färg & Slingor",
+                "subtitle": "Kreativ Färgning",
+                "price": "Förvandla din look med expert färgtjänster. Vi använder premiumprodukter med låg skadegrad för livfulla, långvariga resultat som håller håret friskt.",
+                "items": [
+                    "Helfärgning",
+                    "Balayage & Ombré",
+                    "Slingor & Lowlights",
+                    "Färgkorrigering"
+                ],
+                "highlight": true
+            },
+            {
+                "title": "Behandlingar & Vård",
+                "subtitle": "Hårhälsa",
+                "price": "Återställ och vitalisera ditt hår med våra lyxbehandlingar. Från djupvårdande inpackningar till hårbottenbehandling — vi ger skadat hår nytt liv.",
+                "items": [
+                    "Djupvårdande Inpackning",
+                    "Keratinbehandling",
+                    "Hårbottenbehandling",
+                    "Bröllops- & Eventstyling"
+                ],
+                "highlight": false
+            }
+        ]
+    },
+    "about": {
+        "title": "Om Salongen",
+        "description": "Vår salong är en kreativ oas där skickliga stylister och premiumprodukter möts. Vi tror att fantastiskt hår inte bara handlar om att se bra ut — det handlar om att känna sig självsäker varje dag. Kliv in och låt oss ta hand om resten."
+    },
+    "contact": {
+        "title": "Boka Ditt Besök",
+        "address": "Din Gata, Din Stad",
+        "company_name": "__SITE_NAME__",
+        "company_info": "__SITE_NAME__<br>Din Gatuadress<br>Din Stad<br>Ditt Land",
+        "competencies": [
+            "Precisionsklippning",
+            "Kreativ Färgning",
+            "Bröllopsstyling",
+            "Hårrestaurering",
+            "Trendexpertis",
+            "Personlig Konsultation"
+        ],
+        "quote": "\"Livet är för kort för tråkigt hår.\""
+    },
+    "footer": {
+        "description": "En premiumsalong dedikerad till att få dig att se och känna dig fantastisk."
+    },
+    "hero_bg": {
+        "bg_image": "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&q=80",
+        "overlay_dark": "0.65",
+        "overlay_light": "0.60"
+    },
+    "settings": {
+        "ga_id": "",
+        "availability_status": "accent",
+        "theme_dark": "dark-rose",
+        "theme_light": "light-warm"
+    },
+    "projects": {
+        "categories": [
+            {
+                "id": "klippningar",
+                "title": "Klippningar & Stilar"
+            },
+            {
+                "id": "farg",
+                "title": "Färg"
+            },
+            {
+                "id": "brollop",
+                "title": "Bröllop"
+            },
+            {
+                "id": "transformationer",
+                "title": "Förvandlingar"
+            }
+        ]
+    }
+}

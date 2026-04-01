@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <base href="__BASE_PATH__">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>__SITE_NAME__ — Powered by DropCMS</title>
+  <meta name="description" content="__SITE_NAME__ — a modern website powered by DropCMS">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow">
+  <link rel="canonical" href="__SITE_URL__">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="__SITE_NAME__">
+  <meta property="og:description" content="__SITE_NAME__ — a modern website powered by DropCMS">
+  <meta property="og:url" content="__SITE_URL__">
+  <meta property="og:site_name" content="__SITE_NAME__">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="__SITE_NAME__">
+  <meta name="twitter:description" content="__SITE_NAME__ — a modern website powered by DropCMS">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- React + Babel -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- DropCMS Core -->
+  <script>window.__DROPCMS_API_URL = '__API_URL__';</script>
+  <script type="text/babel" src="__BASE_PATH__dropcms-core.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    // ═══════════════════════════════════════════════════════════════
+    // SITE-SPECIFIC CODE — __SITE_NAME__
+    // Shared platform code lives in dropcms-core.js
+    // ═══════════════════════════════════════════════════════════════
+
+    const {
+      PAGES, THEME_PRESETS,
+      ErrorBoundary, EditableText, EditableImage, EditableList, EditableButton,
+      AddBlockInserter, CustomBlock, ImageGallery,
+      injectStyles, GridBg,
+      Nav, Section, SectionBox, PageHero,
+      AccentBtn, OutlineBtn, decodeHTML,
+      ServiceCard, QuestionPill, Tag,
+      AdminLogin, PostEditor,
+      CONSENT_KEY, getStoredConsent, CookieConsentBanner,
+      AdminSettingsPanel, AdminToolbar,
+      CertificationsSection,
+      ContactPage: _ContactPage, ProjectsPage: _ProjectsPage,
+      _AboutPage, _HomePage, _Footer,
+      _SectionControls, renderDynamicSections,
+      pageFromPath, pathForPage,
+      createApp,
+    } = window.DropCMS;
+    let theme = window.theme;
+    const { useState, useEffect, useRef, useCallback, useMemo } = React;
+
+    // ═══════════════════════════════════════════════════════════════
+    // UI STRINGS (site-specific translations)
+    // ═══════════════════════════════════════════════════════════════
+    const UI_STRINGS = {
+      en: {
+        nav_home: "Home",
+        nav_about: "About",
+        nav_contact: "Contact",
+        nav_projects: "Projects",
+        hero_tagline_label: "Tagline",
+        hero_available: "Available",
+        services_label: "Services",
+        services_title: "What We Offer",
+        contact_label: "Contact",
+        contact_title: "Get in Touch",
+        contact_address: "Your City, Your Country",
+        contact_company: "Company",
+        contact_name: "Name",
+        contact_email: "Email",
+        contact_phone: "Phone",
+        contact_subject: "Subject",
+        contact_message: "Message",
+        contact_send: "Send Message",
+        contact_sending: "Sending...",
+        contact_thankyou: "Message sent!",
+        contact_thankyou_sub: "We'll get back to you shortly.",
+        contact_required_error: "Please fill in all required fields.",
+        contact_captcha_error: "Incorrect answer. Please try again.",
+        contact_verify: "Quick verify:",
+        contact_competencies_title: "Our Expertise",
+        site_name: "__SITE_NAME__",
+        projects_label: "Projects",
+        projects_loading: "Loading...",
+        projects_empty: "No posts yet.",
+        projects_read_more: "Read more",
+        projects_show_less: "Show less",
+        projects_features: "Features",
+        projects_key_features: "Key Features",
+        projects_links: "Links",
+        projects_role: "Role",
+        projects_technologies: "Technologies",
+        projects_tags: "Tags",
+        projects_share: "Share",
+        projects_back: "\u2190 Back to all projects",
+        about_label: "About",
+        about_title: "About Us",
+        about_description: "Tell visitors about your business.",
+        about_competencies_title: "Our Expertise",
+        about_services_title: "Our Services",
+        about_cta_title: "Ready to get started?",
+        about_cta_btn: "Contact Us",
+        footer_description: "Edit this footer text to describe your business.",
+        footer_nav: "Navigation",
+        footer_address: "Address",
+        footer_copyright: "\u00a9 " + new Date().getFullYear() + " __SITE_NAME__",
+        footer_powered: "Powered by DropCMS",
+        footer_location: "",
+      },
+      sv: {
+        nav_home: "Hem",
+        nav_about: "Om oss",
+        nav_contact: "Kontakt",
+        nav_projects: "Projekt",
+        hero_tagline_label: "Tagline",
+        hero_available: "Tillg\u00e4nglig",
+        services_label: "Tj\u00e4nster",
+        services_title: "Vad vi erbjuder",
+        contact_label: "Kontakt",
+        contact_title: "Kontakta oss",
+        contact_address: "Din stad, Ditt land",
+        contact_company: "F\u00f6retag",
+        contact_name: "Namn",
+        contact_email: "E-post",
+        contact_phone: "Telefon",
+        contact_subject: "\u00c4mne",
+        contact_message: "Meddelande",
+        contact_send: "Skicka meddelande",
+        contact_sending: "Skickar...",
+        contact_thankyou: "Meddelande skickat!",
+        contact_thankyou_sub: "Vi \u00e5terkommer s\u00e5 snart vi kan.",
+        contact_required_error: "Fyll i alla obligatoriska f\u00e4lt.",
+        contact_captcha_error: "Fel svar. F\u00f6rs\u00f6k igen.",
+        contact_verify: "Snabbverifiering:",
+        contact_competencies_title: "V\u00e5r expertis",
+        site_name: "__SITE_NAME__",
+        projects_label: "Projekt",
+        projects_loading: "Laddar...",
+        projects_empty: "Inga inl\u00e4gg \u00e4nnu.",
+        projects_read_more: "L\u00e4s mer",
+        projects_show_less: "Visa mindre",
+        projects_features: "Funktioner",
+        projects_key_features: "Nyckelfunktioner",
+        projects_links: "L\u00e4nkar",
+        projects_role: "Roll",
+        projects_technologies: "Teknologier",
+        projects_tags: "Taggar",
+        projects_share: "Dela",
+        projects_back: "\u2190 Tillbaka till alla projekt",
+        about_label: "Om oss",
+        about_title: "Om oss",
+        about_description: "Ber\u00e4tta om ert f\u00f6retag.",
+        about_competencies_title: "V\u00e5r expertis",
+        about_services_title: "V\u00e5ra tj\u00e4nster",
+        about_cta_title: "Redo att komma ig\u00e5ng?",
+        about_cta_btn: "Kontakta oss",
+        footer_description: "Redigera denna footertext.",
+        footer_nav: "Navigation",
+        footer_address: "Adress",
+        footer_copyright: "\u00a9 " + new Date().getFullYear() + " __SITE_NAME__",
+        footer_powered: "Drivs av DropCMS",
+        footer_location: "",
+      },
+    };
+
+    // ═══════════════════════════════════════════════════════════════
+    // LOGO (site-specific)
+    // ═══════════════════════════════════════════════════════════════
+    const CompassLogo = ({ size = 36 }) => (
+      <svg width={size} height={size} viewBox="0 0 100 100" fill="none">
+        <rect x="4" y="4" width="92" height="92" rx="18" fill={theme.bg} stroke={theme.accent} strokeWidth="2" />
+        <text x="50" y="68" textAnchor="middle" fontSize="52" fontWeight="700"
+          fontFamily="system-ui, -apple-system, sans-serif" fill={theme.accent}>
+          {"__SITE_INITIAL__"}
+        </text>
+      </svg>
+    );
+
+    // ─── CONTACT (uses shared core) ─────────────────────────────────
+    const ContactPage = (props) => React.createElement(_ContactPage, {
+      ...props,
+      Logo: CompassLogo,
+      fallbackEmail: "__CONTACT_EMAIL__",
+    });
+
+    // ─── PROJECTS (uses shared core) ─────────────────────────────────
+    const ProjectsPage = (props) => React.createElement(_ProjectsPage, {
+      ...props,
+      siteUrl: "__SITE_URL__",
+      siteName: "__SITE_NAME__",
+    });
+
+    // ─── ABOUT (uses shared core) ────────────────────────────────────
+    const AboutPage = (props) => React.createElement(_AboutPage, {
+      ...props,
+      defaults: {
+        competencies: [],
+        services: [],
+        keyAreas: [],
+        certs: [],
+      },
+    });
+
+    // ─── FOOTER (uses shared core) ───────────────────────────────────
+    const Footer = (props) => React.createElement(_Footer, {
+      ...props,
+      Logo: CompassLogo,
+      siteName: "__SITE_NAME__",
+    });
+
+    // ─── HOME (uses shared core) ───────────────────────────────────
+    const HomePage = (props) => React.createElement(_HomePage, { ...props });
+
+    // ─── SEO DATA ────────────────────────────────────────────────
+    const SEO_DATA = {
+      [PAGES.HOME]: { title: "__SITE_NAME__", description: "__SITE_NAME__ — powered by DropCMS", path: "/" },
+      [PAGES.ABOUT]: { title: "About — __SITE_NAME__", description: "Learn more about __SITE_NAME__", path: "/about" },
+      [PAGES.CONTACT]: { title: "Contact — __SITE_NAME__", description: "Get in touch with __SITE_NAME__", path: "/contact" },
+      [PAGES.PROJECTS]: { title: "Projects — __SITE_NAME__", description: "Projects and work by __SITE_NAME__", path: "/projects" },
+    };
+
+    // ─── Launch app ──────────────────────────────────────────────
+    createApp({
+      UI_STRINGS,
+      HomePage,
+      AboutPage,
+      Footer,
+      SEO_DATA,
+      siteUrl: "__SITE_URL__",
+      siteName: "__SITE_NAME__",
+      defaultPostCategories: [
+        { id: "projects", title: "Projects" },
+      ],
+    });
+  </script>
+</body>
+</html>

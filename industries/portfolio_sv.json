@@ -1,0 +1,108 @@
+{
+    "hero": {
+        "tagline": "Kreativ Designstudio",
+        "title1": "Design Som",
+        "title2": "Gör Intryck",
+        "description": "Genomtänkt, målmedveten design som lyfter varumärken och skapar meningsfulla digitala upplevelser.",
+        "stat1_num": "10+",
+        "stat1_label": "År inom Design",
+        "stat2_num": "150+",
+        "stat2_label": "Genomförda Projekt",
+        "stat3_num": "40+",
+        "stat3_label": "Varumärkesidentiteter"
+    },
+    "services": {
+        "title": "Tjänster",
+        "cards": [
+            {
+                "title": "Varumärkesidentitet",
+                "subtitle": "Visuell Strategi",
+                "price": "Bygg ett varumärke som berör. Från logotypdesign till kompletta visuella system skapar vi sammanhängande identiteter som berättar din historia och når din målgrupp.",
+                "items": [
+                    "Logotypdesign",
+                    "Varumärkesriktlinjer",
+                    "Visuella Identitetssystem",
+                    "Varumärkesstrategi"
+                ],
+                "highlight": false
+            },
+            {
+                "title": "Webb & Digitalt",
+                "subtitle": "Digital Design",
+                "price": "Vackra, funktionella webbplatser och digitala produkter designade med användaren i fokus. Varje pixel har ett syfte, varje interaktion känns intuitiv.",
+                "items": [
+                    "Webbdesign",
+                    "UI/UX-design",
+                    "Responsiva Layouter",
+                    "Interaktiva Prototyper"
+                ],
+                "highlight": true
+            },
+            {
+                "title": "Tryck & Redaktionellt",
+                "subtitle": "Grafisk Design",
+                "price": "Från broschyrer till förpackningar skapar vi trycksaker som fångar uppmärksamhet och förmedlar ditt budskap med klarhet och elegans.",
+                "items": [
+                    "Redaktionell Layout",
+                    "Förpackningsdesign",
+                    "Marknadsföringsmaterial",
+                    "Art Direction"
+                ],
+                "highlight": false
+            }
+        ]
+    },
+    "about": {
+        "title": "Om Mig",
+        "description": "Jag är en designer som tror att bra design är osynlig — den bara fungerar. Med en bakgrund som spänner över varumärkesidentitet, digitala produkter och redaktionell design tar jag ett helhetsperspektiv på varje projekt. Målet är alltid detsamma: skapa något som ser vackert ut och fungerar briljant."
+    },
+    "contact": {
+        "title": "Starta Ett Projekt",
+        "address": "Din Gata, Din Stad",
+        "company_name": "__SITE_NAME__",
+        "company_info": "__SITE_NAME__<br>Din Gatuadress<br>Din Stad<br>Ditt Land",
+        "competencies": [
+            "Varumärkesidentitet",
+            "Webbdesign",
+            "UI/UX",
+            "Typografi",
+            "Art Direction",
+            "Kreativ Strategi"
+        ],
+        "quote": "\"Design är inte bara hur det ser ut. Design är hur det fungerar.\""
+    },
+    "footer": {
+        "description": "En kreativ studio som skapar målmedveten design som förenar varumärken med människor."
+    },
+    "hero_bg": {
+        "bg_image": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1920&q=80",
+        "overlay_dark": "0.65",
+        "overlay_light": "0.60"
+    },
+    "settings": {
+        "ga_id": "",
+        "availability_status": "accent",
+        "theme_dark": "dark-default",
+        "theme_light": "light-ocean"
+    },
+    "projects": {
+        "categories": [
+            {
+                "id": "varumarke",
+                "title": "Varumärke"
+            },
+            {
+                "id": "webb",
+                "title": "Webb"
+            },
+            {
+                "id": "tryck",
+                "title": "Tryck"
+            },
+            {
+                "id": "fotografi",
+                "title": "Fotografi"
+            }
+        ]
+    }
+}

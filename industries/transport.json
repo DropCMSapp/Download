@@ -1,0 +1,108 @@
+{
+    "hero": {
+        "tagline": "Reliable Transport Solutions",
+        "title1": "Moving Your",
+        "title2": "Business Forward",
+        "description": "Professional logistics and transport services built on reliability, efficiency, and a commitment to on-time delivery.",
+        "stat1_num": "20+",
+        "stat1_label": "Years on the Road",
+        "stat2_num": "50K+",
+        "stat2_label": "Deliveries Made",
+        "stat3_num": "99.5%",
+        "stat3_label": "On-Time Rate"
+    },
+    "services": {
+        "title": "Our Services",
+        "cards": [
+            {
+                "title": "Local & Regional",
+                "subtitle": "Express Delivery",
+                "price": "Fast and reliable local and regional transport. From same-day express to scheduled routes, we keep your supply chain running smoothly.",
+                "items": [
+                    "Same-Day Delivery",
+                    "Scheduled Routes",
+                    "Last-Mile Solutions",
+                    "Temperature Controlled"
+                ],
+                "highlight": false
+            },
+            {
+                "title": "Freight & Logistics",
+                "subtitle": "Full-Scale Transport",
+                "price": "Comprehensive freight solutions for businesses of all sizes. We manage everything from route planning to customs clearance, so you can focus on your core business.",
+                "items": [
+                    "Full Truckload (FTL)",
+                    "Partial Load (LTL)",
+                    "Cross-Border Transport",
+                    "Warehousing"
+                ],
+                "highlight": true
+            },
+            {
+                "title": "Specialized Transport",
+                "subtitle": "Custom Solutions",
+                "price": "Handling sensitive, oversized, or high-value cargo requires expertise. Our specialized fleet and trained crews ensure your goods arrive safely, every time.",
+                "items": [
+                    "Fragile Goods",
+                    "Heavy & Oversized",
+                    "High-Value Cargo",
+                    "Hazardous Materials"
+                ],
+                "highlight": false
+            }
+        ]
+    },
+    "about": {
+        "title": "About Our Company",
+        "description": "Built on a foundation of reliability and hard work, we've grown from a single truck operation to a full-service transport company. We invest in modern vehicles, GPS tracking, and rigorous safety standards because we know your cargo is your livelihood. When we say on time, we mean it."
+    },
+    "contact": {
+        "title": "Request a Quote",
+        "address": "Your Street, Your City",
+        "company_name": "__SITE_NAME__",
+        "company_info": "__SITE_NAME__<br>Your Street Address<br>Your City<br>Your Country",
+        "competencies": [
+            "Freight Logistics",
+            "Express Delivery",
+            "Warehousing",
+            "Route Optimization",
+            "GPS Tracking",
+            "Safety Certified"
+        ],
+        "quote": "\"The road to success is always under construction — and we know every mile of it.\""
+    },
+    "footer": {
+        "description": "Professional transport and logistics — delivering reliability on every route."
+    },
+    "hero_bg": {
+        "bg_image": "https://images.unsplash.com/photo-1494412574643-ff11b0a5eb19?w=1920&q=80",
+        "overlay_dark": "0.65",
+        "overlay_light": "0.60"
+    },
+    "settings": {
+        "ga_id": "",
+        "availability_status": "accent",
+        "theme_dark": "dark-emerald",
+        "theme_light": "light-default"
+    },
+    "projects": {
+        "categories": [
+            {
+                "id": "fleet",
+                "title": "Our Fleet"
+            },
+            {
+                "id": "logistics",
+                "title": "Logistics"
+            },
+            {
+                "id": "specialized",
+                "title": "Specialized"
+            },
+            {
+                "id": "warehouse",
+                "title": "Warehousing"
+            }
+        ]
+    }
+}

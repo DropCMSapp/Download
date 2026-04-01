@@ -1,0 +1,108 @@
+{
+    "hero": {
+        "tagline": "Professionell Musiker",
+        "title1": "Känn",
+        "title2": "Musiken",
+        "description": "Fängslande liveframträdanden och studiosessioner som skapar oförglömliga musikupplevelser.",
+        "stat1_num": "20+",
+        "stat1_label": "År på Scen",
+        "stat2_num": "300+",
+        "stat2_label": "Livekonserter",
+        "stat3_num": "50+",
+        "stat3_label": "Inspelningar"
+    },
+    "services": {
+        "title": "Vad Jag Erbjuder",
+        "cards": [
+            {
+                "title": "Liveframträdande",
+                "subtitle": "Event & Scener",
+                "price": "Ge ditt event liv med ett skräddarsytt liveframträdande. Från intima sammankomster till storskaliga event anpassas varje spelning efter stunden.",
+                "items": [
+                    "Företagsevent",
+                    "Privata Fester",
+                    "Festivalspelningar",
+                    "Bröllopsunderhållning"
+                ],
+                "highlight": false
+            },
+            {
+                "title": "Studiosessioner",
+                "subtitle": "Inspelning & Produktion",
+                "price": "Professionellt sessionsspel och produktionstjänster. Oavsett om du behöver ett solistiskt bidrag eller ett komplett arrangemang levererar jag musikalitet och precision i varje spår.",
+                "items": [
+                    "Sessionsinspelning",
+                    "Arrangemang",
+                    "Musikproduktion",
+                    "Mixsamarbete"
+                ],
+                "highlight": true
+            },
+            {
+                "title": "Undervisning & Workshops",
+                "subtitle": "Musikutbildning",
+                "price": "Personliga lektioner och gruppworkshops för alla nivåer. Lär dig teknik, teori och konsten att uttrycka dig musikaliskt av en erfaren musiker.",
+                "items": [
+                    "Privatlektioner",
+                    "Gruppworkshops",
+                    "Masterclass",
+                    "Onlinecoaching"
+                ],
+                "highlight": false
+            }
+        ]
+    },
+    "about": {
+        "title": "Om Mig",
+        "description": "Musiken har varit mitt språk i över två decennier. Från rökiga jazzklubbar till stora konserthallar har jag ägnat mitt liv åt ljudets hantverk. Varje framträdande är ett samtal — mellan musiken, publiken och ögonblicket."
+    },
+    "contact": {
+        "title": "Låt Oss Skapa Musik",
+        "address": "Din Gata, Din Stad",
+        "company_name": "__SITE_NAME__",
+        "company_info": "__SITE_NAME__<br>Din Gatuadress<br>Din Stad<br>Ditt Land",
+        "competencies": [
+            "Liveframträdande",
+            "Studioinspelning",
+            "Musikproduktion",
+            "Arrangemang",
+            "Musikundervisning",
+            "Eventunderhållning"
+        ],
+        "quote": "\"Där orden tar slut börjar musiken.\""
+    },
+    "footer": {
+        "description": "Professionell musiker som levererar oförglömliga framträdanden och studioexcellens."
+    },
+    "hero_bg": {
+        "bg_image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1920&q=80",
+        "overlay_dark": "0.65",
+        "overlay_light": "0.60"
+    },
+    "settings": {
+        "ga_id": "",
+        "availability_status": "accent",
+        "theme_dark": "dark-violet",
+        "theme_light": "light-default"
+    },
+    "projects": {
+        "categories": [
+            {
+                "id": "live",
+                "title": "Live"
+            },
+            {
+                "id": "studio",
+                "title": "Studio"
+            },
+            {
+                "id": "samarbeten",
+                "title": "Samarbeten"
+            },
+            {
+                "id": "undervisning",
+                "title": "Undervisning"
+            }
+        ]
+    }
+}
