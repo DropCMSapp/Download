@@ -9,7 +9,9 @@
         "stat2_num": "3000+",
         "stat2_label": "Jobs Completed",
         "stat3_num": "24/7",
-        "stat3_label": "Emergency Service"
+        "stat3_label": "Emergency Service",
+        "bg_image": "uploads/20260401_184555_69cd4bc36a49b.jpg",
+        "bg_video": ""
     },
     "services": {
         "title": "Our Services",

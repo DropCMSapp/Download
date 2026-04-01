@@ -9,7 +9,11 @@
         "stat2_num": "200+",
         "stat2_label": "Projects Delivered",
         "stat3_num": "98%",
-        "stat3_label": "Client Retention"
+        "stat3_label": "Client Retention",
+        "bg_image": "uploads/20260401_190530_69cd505a81caf.jpg",
+        "bg_video": "",
+        "overlay_dark": "0.70",
+        "overlay_light": "0.65"
     },
     "services": {
         "title": "Our Services",
@@ -82,8 +86,9 @@
     "settings": {
         "ga_id": "",
         "availability_status": "accent",
-        "theme_dark": "dark-default",
-        "theme_light": "light-default"
+        "theme_dark": "dark",
+        "theme_light": "light",
+        "industry_theme": "consulting"
     },
     "projects": {
         "categories": [

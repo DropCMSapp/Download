@@ -9,7 +9,9 @@
         "stat2_num": "150+",
         "stat2_label": "Projects Completed",
         "stat3_num": "40+",
-        "stat3_label": "Brand Identities"
+        "stat3_label": "Brand Identities",
+        "bg_video": "uploads/20260401_214229_69cd75254a1cd.mp4",
+        "bg_image": ""
     },
     "services": {
         "title": "Services",

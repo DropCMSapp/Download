@@ -9,7 +9,9 @@
         "stat2_num": "800+",
         "stat2_label": "Projects Built",
         "stat3_num": "100%",
-        "stat3_label": "Quality Guaranteed"
+        "stat3_label": "Quality Guaranteed",
+        "bg_image": "uploads/20260401_203756_69cd660433c1b.jpg",
+        "bg_video": ""
     },
     "services": {
         "title": "Our Craft",

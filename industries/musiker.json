@@ -9,7 +9,9 @@
         "stat2_num": "300+",
         "stat2_label": "Live Shows",
         "stat3_num": "50+",
-        "stat3_label": "Recordings"
+        "stat3_label": "Recordings",
+        "bg_image": "uploads/20260401_203815_69cd6617733e2.jpg",
+        "bg_video": ""
     },
     "services": {
         "title": "What I Offer",

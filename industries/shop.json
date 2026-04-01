@@ -9,7 +9,9 @@
         "stat2_num": "50+",
         "stat2_label": "Trusted Brands",
         "stat3_num": "10K+",
-        "stat3_label": "Happy Customers"
+        "stat3_label": "Happy Customers",
+        "bg_image": "uploads/20260401_203622_69cd65a648f95.jpg",
+        "bg_video": ""
     },
     "services": {
         "title": "Collections",
