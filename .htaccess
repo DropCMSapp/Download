@@ -1,0 +1,27 @@
+# DropCMS Customer Site
+# ══════════════════════════════════════════════════
+
+# ── PHP Upload Limits ────────────────────────────
+php_value upload_max_filesize 15M
+php_value post_max_size 16M
+php_value max_execution_time 120
+
+# Serve index.php first (injects OG meta tags for social crawlers)
+DirectoryIndex index.php index.html
+
+# ── Protect data directory ────────────────────────
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Block direct access to data/*.json files
+RewriteRule ^data/.*\.json$ - [F,L]
+
+# Block access to site-config.php
+RewriteRule ^site-config\.php$ - [F,L]
+
+# ── Clean URL routing ───────────────────────────
+# Don't rewrite real files or directories
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [L,QSA]
+</IfModule>
