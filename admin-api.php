@@ -40,8 +40,9 @@ function jsonResponse($data, $code = 200) {
 }
 
 function requireAuth() {
-    // Template preview sites skip auth — they're protected by the admin panel
+    // Template preview and demo sites skip auth
     if (defined('TEMPLATE_MODE') && TEMPLATE_MODE) return;
+    if (defined('DEMO_MODE') && DEMO_MODE) return;
     if (empty($_SESSION['admin_logged_in'])) {
         jsonResponse(['error' => 'Unauthorized'], 401);
     }
@@ -214,11 +215,18 @@ switch ($action) {
         break;
 
     case 'auth-check':
-        jsonResponse(['authenticated' => !empty($_SESSION['admin_logged_in'])]);
+        $isDemo = defined('DEMO_MODE') && DEMO_MODE;
+        $isTemplate = defined('TEMPLATE_MODE') && TEMPLATE_MODE;
+        jsonResponse([
+            'authenticated' => $isDemo || $isTemplate || !empty($_SESSION['admin_logged_in']),
+            'demo_mode' => $isDemo,
+            'template_mode' => $isTemplate,
+        ]);
         break;
 
     // ── Forgot password ─────────────────────────────────────────────
     case 'forgot-password':
+        if (defined('DEMO_MODE') && DEMO_MODE) jsonResponse(['error' => 'Password reset is disabled on the demo site'], 403);
         if ($method !== 'POST') jsonResponse(['error' => 'POST required'], 405);
         $input = json_decode(file_get_contents('php://input'), true);
         $email = trim($input['email'] ?? '');
@@ -345,7 +353,19 @@ switch ($action) {
             $saveLang = $_GET['lang'] ?? 'en';
 
             // When saving SV, strip hero bg fields (they live in EN only)
+            // But first: if SV payload has hero bg changes, apply them to EN content
             if ($saveLang === 'sv' && isset($input['hero'])) {
+                $enContent = readJson('content.json');
+                if ($enContent) {
+                    $bgChanged = false;
+                    foreach ($heroBgFields as $f) {
+                        if (array_key_exists($f, $input['hero'])) {
+                            $enContent['hero'][$f] = $input['hero'][$f];
+                            $bgChanged = true;
+                        }
+                    }
+                    if ($bgChanged) writeJson('content.json', $enContent);
+                }
                 foreach ($heroBgFields as $f) {
                     unset($input['hero'][$f]);
                 }

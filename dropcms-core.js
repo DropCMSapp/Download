@@ -338,11 +338,13 @@ const EditableButton = ({
         {children}
       </BtnComponent>
       {showEditor && (
+        <>
+        <div onClick={() => setShowEditor(false)} style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, zIndex: 8999, background: "rgba(0,0,0,0.3)" }} />
         <div style={{
-          position: "absolute", top: "100%", left: 0, marginTop: 8,
+          position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)",
           background: theme.bgCard, border: `1px solid ${theme.border}`,
-          borderRadius: 12, padding: 16, zIndex: 200, minWidth: 280,
-          boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
+          borderRadius: 12, padding: 20, zIndex: 9000, minWidth: 300, maxWidth: 360,
+          boxShadow: "0 8px 32px rgba(0,0,0,0.5)",
         }}>
           <div style={{ fontSize: 12, color: theme.textMuted, marginBottom: 8, fontWeight: 600 }}>EDIT BUTTON</div>
           <div style={{ marginBottom: 10 }}>
@@ -374,6 +376,7 @@ const EditableButton = ({
           </div>
           <button onClick={() => setShowEditor(false)} style={{ marginTop: 10, background: theme.accent, color: theme.bg, border: "none", padding: "6px 16px", borderRadius: 6, cursor: "pointer", fontSize: 12, fontWeight: 600 }}>Done</button>
         </div>
+        </>
       )}
     </div>
   );
@@ -2003,7 +2006,7 @@ const PageHero = ({ children, bgKey, content: phContent, editMode: phEdit, updat
       background: theme.mode === "dark"
         ? "linear-gradient(180deg, rgba(10,15,26,0.7) 0%, rgba(10,15,26,0.85) 60%, rgba(10,15,26,0.95) 100%)"
         : "linear-gradient(180deg, rgba(245,247,250,0.65) 0%, rgba(245,247,250,0.8) 60%, rgba(245,247,250,0.95) 100%)",
-      zIndex: 0,
+      zIndex: 0, pointerEvents: "none",
     }} />
   ) : null;
   return (
@@ -5276,7 +5279,7 @@ const ProjectsPage = ({ adminLoggedIn, onEditPost, onDeletePost, editMode = fals
 
       {/* Admin: add new category section */}
       {editMode && (
-        <Section style={{ paddingTop: 0, paddingBottom: 60 }}>
+        <Section style={{ paddingTop: categories.length === 0 ? 120 : 0, paddingBottom: 60 }}>
           <button
             onClick={addCategory}
             style={{
@@ -6432,6 +6435,23 @@ function createApp({ UI_STRINGS, HomePage, AboutPage, Footer, SEO_DATA, siteUrl,
       window.location.hash = "#admin";
     }
 
+    // Demo mode: auto-login + edit mode + show demo banner
+    const [demoMode, setDemoMode] = useState(false);
+    useEffect(() => {
+      fetch(`${API_URL}?action=auth-check`, { credentials: "include" })
+        .then(r => r.json())
+        .then(data => {
+          if (data.demo_mode) {
+            setDemoMode(true);
+            if (!adminLoggedIn) {
+              setAdminLoggedIn(true);
+              setEditMode(true);
+              if (window.location.hash !== "#admin") window.location.hash = "#admin";
+            }
+          }
+        }).catch(() => {});
+    }, []);
+
     if (window.location.hash === "#admin" && !adminLoggedIn) {
       return (
         <div className="noise" style={{ minHeight: "100vh", position: "relative" }}>
@@ -6445,6 +6465,20 @@ function createApp({ UI_STRINGS, HomePage, AboutPage, Footer, SEO_DATA, siteUrl,
       <div className="noise" style={{ minHeight: "100vh", position: "relative" }}>
         <GridBg />
         <Nav page={page} setPage={setPage} onToggleTheme={toggleVisitorTheme} currentThemeMode={theme.mode} lang={lang} setLang={handleLangChange} t={t} content={content} editMode={editMode} setContent={setContent} />
+        {demoMode && (
+          <div style={{
+            position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 9998,
+            background: "linear-gradient(135deg, #f59e0b, #d97706)", color: "#000",
+            padding: "8px 20px", display: "flex", justifyContent: "center", alignItems: "center", gap: 16,
+            fontSize: 13, fontWeight: 600,
+          }}>
+            <span>DEMO MODE — Feel free to edit everything!</span>
+            <a href="https://dropcms.app/signup.html" target="_blank" style={{
+              background: "#000", color: "#f59e0b", padding: "4px 14px", borderRadius: 6,
+              fontSize: 12, fontWeight: 700, textDecoration: "none",
+            }}>Create Your Own Site</a>
+          </div>
+        )}
         <main style={{ position: "relative", zIndex: 1 }}>
           {page === PAGES.HOME && <HomePage setPage={setPage} editMode={editMode} content={content} setContent={setContent} t={t} weatherVideoUrl={weatherVideoUrl} {...extraProps} />}
           {page === PAGES.ABOUT && <AboutPage setPage={setPage} editMode={editMode} content={content} setContent={setContent} t={t} />}
