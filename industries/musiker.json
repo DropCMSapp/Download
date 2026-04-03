@@ -10,8 +10,10 @@
         "stat2_label": "Live Shows",
         "stat3_num": "50+",
         "stat3_label": "Recordings",
-        "bg_image": "uploads/20260401_203815_69cd6617733e2.jpg",
-        "bg_video": ""
+        "bg_image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&q=60",
+        "bg_video": "",
+        "overlay_dark": "0.70",
+        "overlay_light": "0.62"
     },
     "services": {
         "title": "What I Offer",
@@ -84,8 +86,10 @@
     "settings": {
         "ga_id": "",
         "availability_status": "accent",
-        "theme_dark": "dark-violet",
-        "theme_light": "light-default"
+        "theme_dark": "dark",
+        "theme_light": "light",
+        "theme_id": "dark",
+        "industry_theme": "musiker"
     },
     "projects": {
         "categories": [
@@ -106,5 +110,8 @@
                 "title": "Teaching"
             }
         ]
+    },
+    "branding": {
+        "site_name": "Music"
     }
 }

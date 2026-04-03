@@ -1,0 +1,116 @@
+{
+    "hero": {
+        "tagline": "Profilprodukter & Presentreklam",
+        "title1": "Ditt Varumärke,",
+        "title2": "Överallt",
+        "description": "Profilprodukter och företagspresenter som gör bestående intryck. Från pennor till exklusiva presentset — vi hjälper ditt varumärke att synas.",
+        "stat1_num": "5000+",
+        "stat1_label": "Produkter",
+        "stat2_num": "14",
+        "stat2_label": "Dagars Leverans",
+        "stat3_num": "100%",
+        "stat3_label": "Nöjda Kunder"
+    },
+    "services": {
+        "title": "Våra Tjänster",
+        "cards": [
+            {
+                "title": "Profilprodukter",
+                "subtitle": "Din Logga, Dina Produkter",
+                "price": "Ett brett sortiment av profilprodukter med din logga — från vardagsprodukter som pennor och tygkassar till exklusiva dryckesbehållare och teknikprylar.",
+                "items": [
+                    "Screentryck, tampongtryck & brodyr",
+                    "Digitaltryck i fullfärg",
+                    "Lasergravyr på metall & trä",
+                    "Låga minimibeställningar"
+                ],
+                "highlight": false
+            },
+            {
+                "title": "Företagspresenter",
+                "subtitle": "Gör Intryck",
+                "price": "Kurerade presentboxar och välkomstpaket för kunder, anställda och event. Anpassade förpackningar med ert varumärke för en exklusiv känsla.",
+                "items": [
+                    "Välkomstpaket för nyanställda",
+                    "Kundpresenter & relationsbyggande",
+                    "Jul- & säsongspaket",
+                    "Anpassade förpackningar & presentboxar"
+                ],
+                "highlight": true
+            },
+            {
+                "title": "Event & Mässor",
+                "subtitle": "Sticka Ut på Event",
+                "price": "Allt du behöver för att göra intryck på mässor, konferenser och företagsevent. Från give-aways till montermaterial.",
+                "items": [
+                    "Nyckelband, namnbrickor & armband",
+                    "Give-aways & kampanjprodukter",
+                    "Roll-ups & banderoller",
+                    "Profilkläder för personal"
+                ],
+                "highlight": false
+            }
+        ]
+    },
+    "about": {
+        "title": "Varför Välja Oss",
+        "description": "Vi hjälper företag i alla storlekar att stärka sitt varumärke genom profilprodukter av hög kvalitet. Med tillgång till tusentals produkter från ledande leverantörer, snabba leveranstider och professionella trycktjänster gör vi det enkelt att få ut ditt varumärke till rätt personer."
+    },
+    "contact": {
+        "title": "Kontakta Oss",
+        "address": "Din Gata, Din Stad",
+        "company_name": "__SITE_NAME__",
+        "company_info": "__SITE_NAME__<br>Din Gatuadress<br>Din Stad<br>Ditt Land",
+        "competencies": [
+            "Gratis offert inom 24 timmar",
+            "Varuprover på begäran",
+            "Korrektur innan produktion",
+            "Leverans i hela Europa",
+            "Miljövänliga alternativ",
+            "Mängdrabatter"
+        ],
+        "quote": "\"Ditt varumärke förtjänar att bli ihågkommet.\""
+    },
+    "footer": {
+        "description": "Profilprodukter och företagspresenter som sätter ditt varumärke i rampljuset."
+    },
+    "hero_bg": {
+        "bg_image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=1920&q=80",
+        "overlay_dark": "0.65",
+        "overlay_light": "0.60"
+    },
+    "settings": {
+        "ga_id": "",
+        "availability_status": "accent",
+        "theme_dark": "dark-emerald",
+        "theme_light": "light-forest"
+    },
+    "projects": {
+        "categories": [
+            {
+                "id": "drycker",
+                "title": "Muggar & Flaskor"
+            },
+            {
+                "id": "vaskor",
+                "title": "Väskor & Kassar"
+            },
+            {
+                "id": "skrivdon",
+                "title": "Pennor & Skrivdon"
+            },
+            {
+                "id": "teknik",
+                "title": "Teknik & Elektronik"
+            },
+            {
+                "id": "textil",
+                "title": "Textil & Profilkläder"
+            },
+            {
+                "id": "presentset",
+                "title": "Presentset"
+            }
+        ]
+    }
+}

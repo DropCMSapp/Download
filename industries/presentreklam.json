@@ -1,0 +1,124 @@
+{
+    "hero": {
+        "tagline": "Promotional Products",
+        "title1": "Your Brand,",
+        "title2": "Everywhere",
+        "description": "Custom branded merchandise and corporate gifts that make a lasting impression. From pens to premium gift sets — we help your brand stand out.",
+        "stat1_num": "5000+",
+        "stat1_label": "Products",
+        "stat2_num": "14",
+        "stat2_label": "Days Delivery",
+        "stat3_num": "100%",
+        "stat3_label": "Satisfied Clients",
+        "bg_image": "",
+        "bg_video": "uploads/20260402_142822_69ce60e6c57a3.mp4"
+    },
+    "services": {
+        "title": "Our Services",
+        "cards": [
+            {
+                "title": "Branded Merchandise",
+                "subtitle": "Your Logo, Your Products",
+                "price": "A wide range of promotional products with your logo — from everyday items like pens and tote bags to premium drinkware and tech accessories.",
+                "items": [
+                    "Screen print, pad print & embroidery",
+                    "Full-color digital printing",
+                    "Laser engraving on metal & wood",
+                    "Low minimum order quantities"
+                ],
+                "highlight": false
+            },
+            {
+                "title": "Corporate Gift Sets",
+                "subtitle": "Make an Impression",
+                "price": "Curated gift boxes and welcome kits for clients, employees, and events. Custom packaged with your branding for a premium feel.",
+                "items": [
+                    "Welcome kits for new hires",
+                    "Client appreciation gifts",
+                    "Holiday & seasonal packages",
+                    "Custom packaging & gift boxes"
+                ],
+                "highlight": true
+            },
+            {
+                "title": "Event & Trade Show",
+                "subtitle": "Stand Out at Events",
+                "price": "Everything you need to make an impact at trade shows, conferences, and corporate events. From giveaways to booth accessories.",
+                "items": [
+                    "Lanyards, badges & wristbands",
+                    "Promotional giveaways",
+                    "Roll-ups & banners",
+                    "Branded apparel for staff"
+                ],
+                "highlight": false
+            }
+        ]
+    },
+    "about": {
+        "title": "Why Choose Us",
+        "description": "We help businesses of all sizes strengthen their brand through high-quality promotional products. With access to thousands of items from leading suppliers, fast turnaround times, and expert print services, we make it easy to get your brand into the hands of the people who matter."
+    },
+    "contact": {
+        "title": "Get in Touch",
+        "address": "Your Street, Your City",
+        "company_name": "__SITE_NAME__",
+        "company_info": "__SITE_NAME__<br>Your Street Address<br>Your City<br>Your Country",
+        "competencies": [
+            "Free quote within 24 hours",
+            "Samples available on request",
+            "Print proof before production",
+            "Europe-wide delivery",
+            "Eco-friendly alternatives",
+            "Bulk pricing discounts"
+        ],
+        "quote": "\"Your brand deserves to be remembered.\""
+    },
+    "footer": {
+        "description": "Promotional products and corporate gifts that put your brand in the spotlight."
+    },
+    "hero_bg": {
+        "bg_image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=1920&q=80",
+        "overlay_dark": "0.65",
+        "overlay_light": "0.60"
+    },
+    "settings": {
+        "ga_id": "",
+        "availability_status": "accent",
+        "theme_dark": "dark",
+        "theme_light": "light-forest",
+        "theme_id": "dark",
+        "contact_email": ""
+    },
+    "projects": {
+        "categories": [
+            {
+                "id": "drinkware",
+                "title": "Drinkware"
+            },
+            {
+                "id": "bags",
+                "title": "Bags & Totes"
+            },
+            {
+                "id": "writing",
+                "title": "Writing Instruments"
+            },
+            {
+                "id": "tech",
+                "title": "Tech & Electronics"
+            },
+            {
+                "id": "textiles",
+                "title": "Textiles & Apparel"
+            },
+            {
+                "id": "giftsets",
+                "title": "Gift Sets"
+            }
+        ]
+    },
+    "about_header": {
+        "bg_video": "uploads/20260402_142904_69ce6110f34fb.mp4",
+        "bg_image": ""
+    }
+}

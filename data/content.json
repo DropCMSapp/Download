@@ -1,0 +1,86 @@
+{
+    "hero": {
+        "tagline": "Welcome",
+        "title1": "Your",
+        "title2": "Business Name",
+        "description": "Edit this text to describe your business. Click any text while logged in as admin to start editing. This is your DropCMS-powered website — fully customizable, no database required.",
+        "stat1_num": "10+",
+        "stat1_label": "Years Experience",
+        "stat2_num": "500+",
+        "stat2_label": "Happy Customers",
+        "stat3_num": "24/7",
+        "stat3_label": "Support"
+    },
+    "services": {
+        "cards": [
+            {
+                "title": "Service One",
+                "subtitle": "What you offer",
+                "price": "Describe your first service or product here. Click to edit when logged in as admin.",
+                "items": [
+                    "Feature or benefit one",
+                    "Feature or benefit two",
+                    "Feature or benefit three",
+                    "Feature or benefit four"
+                ],
+                "highlight": false
+            },
+            {
+                "title": "Service Two",
+                "subtitle": "Most Popular",
+                "price": "Describe your second service or product here. This card is highlighted as the recommended option.",
+                "items": [
+                    "Everything in Service One",
+                    "Additional premium feature",
+                    "Priority support",
+                    "Custom configuration"
+                ],
+                "highlight": true
+            },
+            {
+                "title": "Service Three",
+                "subtitle": "Enterprise",
+                "price": "Describe your premium or enterprise offering here.",
+                "items": [
+                    "Everything in Service Two",
+                    "Dedicated account manager",
+                    "Custom integrations",
+                    "SLA guarantee"
+                ],
+                "highlight": false
+            }
+        ]
+    },
+    "about": {
+        "title": "About Us",
+        "description": "Tell your visitors about your business, your team, and what makes you unique. This section is fully editable — click any text while logged in as admin to customize it."
+    },
+    "contact": {
+        "title": "Get in Touch",
+        "address": "Your City, Your Country",
+        "company_name": "__SITE_NAME__",
+        "company_info": "Your Address<br />Your City<br />Your Country",
+        "competencies": [
+            "Your core competency or service",
+            "Another area of expertise",
+            "A third skill or offering"
+        ],
+        "quote": "\"Your tagline or motto goes here\""
+    },
+    "footer": {
+        "description": "A short description of your business for the footer. Edit this text to match your brand."
+    },
+    "settings": {
+        "ga_id": "",
+        "availability_status": "accent",
+        "theme_light": "light-ocean"
+    },
+    "projects": {
+        "categories": [
+            {
+                "id": "projects",
+                "title": "Our Work"
+            }
+        ]
+    }
+}
