@@ -1422,7 +1422,8 @@ const GridBg = () => (
 
 // ─── Navigation ──────────────────────────────────────────────────────
 const Nav = ({ page, setPage, onToggleTheme, currentThemeMode, lang, setLang, t, content, editMode, setContent }) => {
-  const showLangToggle = content?.settings?.showLanguageToggle !== false;
+  const siteLanguage = content?.settings?.site_language || (content?.settings?.showLanguageToggle === false ? 'en' : 'both');
+  const showLangToggle = siteLanguage === 'both';
   const brandName = content?.branding?.site_name || t("site_name") || "DropCMS";
   const brandLogo = content?.branding?.logo_url || "";
   const updateBranding = (key, value) => {
@@ -3590,32 +3591,35 @@ const AdminSettingsPanel = ({ open, onClose, content, setContent }) => {
           </div>
         </div>
 
-        {/* Language Toggle Visibility */}
+        {/* Site Language */}
         <div style={{ marginBottom: 28 }}>
           <div style={{
             fontSize: 13, fontWeight: 600, color: theme.accent,
             textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 12,
           }}>Language</div>
-          <label style={{ display: "flex", alignItems: "center", gap: 12, cursor: "pointer" }}>
-            <div
-              onClick={() => update("showLanguageToggle", !(c("showLanguageToggle", true) !== false))}
-              style={{
-                width: 40, height: 22, borderRadius: 11, position: "relative",
-                background: c("showLanguageToggle", true) !== false ? theme.accent : "rgba(148,163,184,0.3)",
-                transition: "background 0.2s", cursor: "pointer",
-              }}
-            >
-              <div style={{
-                width: 16, height: 16, borderRadius: "50%", background: "#fff",
-                position: "absolute", top: 3,
-                left: c("showLanguageToggle", true) !== false ? 21 : 3,
-                transition: "left 0.2s",
-              }} />
-            </div>
-            <span style={{ fontSize: 13, fontWeight: 500, color: theme.textLight }}>Show language toggle</span>
-          </label>
+          <div style={{ display: "flex", gap: 0, borderRadius: 8, overflow: "hidden", border: `1px solid ${theme.border}` }}>
+            {[
+              { value: "sv", label: "Svenska" },
+              { value: "en", label: "English" },
+              { value: "both", label: "Both (SV/EN)" },
+            ].map(opt => (
+              <button
+                key={opt.value}
+                onClick={() => update("site_language", opt.value)}
+                style={{
+                  flex: 1, padding: "8px 12px", border: "none", cursor: "pointer",
+                  fontSize: 12, fontWeight: 600, fontFamily: "'DM Sans', sans-serif",
+                  background: (c("site_language", "both")) === opt.value ? theme.accent : "transparent",
+                  color: (c("site_language", "both")) === opt.value ? "#fff" : theme.textLight,
+                  transition: "all 0.2s",
+                }}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
           <p style={{ fontSize: 11, color: theme.textMuted, marginTop: 6, lineHeight: 1.5 }}>
-            Controls whether the EN/SV language toggle is visible in the navigation bar. Swedish content is always accessible via the ?lang=sv URL parameter regardless of this setting.
+            Choose "Svenska" or "English" for a single-language site, or "Both" to show the language toggle in the navigation.
           </p>
         </div>
 
@@ -6030,6 +6034,13 @@ function createApp({ UI_STRINGS, HomePage, AboutPage, Footer, SEO_DATA, siteUrl,
     useEffect(() => {
       try { localStorage.setItem('gc_lang', lang); } catch {}
     }, [lang]);
+
+    // Enforce site_language setting once content loads
+    useEffect(() => {
+      const sl = content?.settings?.site_language;
+      if (sl === 'en' && lang !== 'en') setLang('en');
+      if (sl === 'sv' && lang !== 'sv') setLang('sv');
+    }, [content?.settings?.site_language]);
 
     // ─── Theme system ───────────────────────────────────────────────
     const VISITOR_THEME_KEY = "dropcms_theme_mode";

@@ -331,8 +331,22 @@ switch ($action) {
                 $enContent = getDefaultContent();
                 writeJson('content.json', $enContent);
             }
+
+            // Determine site language preference
+            $siteLanguage = $enContent['settings']['site_language'] ?? 'both';
+
             if ($getLang === 'sv') {
                 $svContent = readJson('content_sv.json');
+
+                // If sv-only mode and no SV file exists, create from EN
+                if (!$svContent && $siteLanguage === 'sv') {
+                    $svContent = $enContent;
+                    foreach ($heroBgFields as $f) {
+                        unset($svContent['hero'][$f]);
+                    }
+                    writeJson('content_sv.json', $svContent);
+                }
+
                 if ($svContent) {
                     // Inject EN hero background into SV content
                     foreach ($heroBgFields as $f) {
@@ -354,20 +368,34 @@ switch ($action) {
 
             // When saving SV, strip hero bg fields (they live in EN only)
             // But first: if SV payload has hero bg changes, apply them to EN content
-            if ($saveLang === 'sv' && isset($input['hero'])) {
+            if ($saveLang === 'sv') {
                 $enContent = readJson('content.json');
                 if ($enContent) {
-                    $bgChanged = false;
-                    foreach ($heroBgFields as $f) {
-                        if (array_key_exists($f, $input['hero'])) {
-                            $enContent['hero'][$f] = $input['hero'][$f];
-                            $bgChanged = true;
+                    $enChanged = false;
+
+                    // Sync hero bg fields to EN
+                    if (isset($input['hero'])) {
+                        foreach ($heroBgFields as $f) {
+                            if (array_key_exists($f, $input['hero'])) {
+                                $enContent['hero'][$f] = $input['hero'][$f];
+                                $enChanged = true;
+                            }
                         }
                     }
-                    if ($bgChanged) writeJson('content.json', $enContent);
+
+                    // Always sync site_language setting to EN content
+                    if (isset($input['settings']['site_language'])) {
+                        if (!isset($enContent['settings'])) $enContent['settings'] = [];
+                        $enContent['settings']['site_language'] = $input['settings']['site_language'];
+                        $enChanged = true;
+                    }
+
+                    if ($enChanged) writeJson('content.json', $enContent);
                 }
-                foreach ($heroBgFields as $f) {
-                    unset($input['hero'][$f]);
+                if (isset($input['hero'])) {
+                    foreach ($heroBgFields as $f) {
+                        unset($input['hero'][$f]);
+                    }
                 }
             }
 
