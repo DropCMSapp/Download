@@ -2,7 +2,7 @@
 // This file is synced across all DropCMS instances.
 // Site-specific code (UI_STRINGS, HomePage, etc.) lives in index.html.
 
-const DROPCMS_VERSION = "2.3.4";
+const DROPCMS_VERSION = "2.3.5";
 
 // ─── Error capture (buffered, sent with heartbeat) ──────────────────
 window.__dropcmsErrors = [];
@@ -1124,6 +1124,8 @@ const CustomBlock = ({ block, editMode, content, setContent }) => {
     const showExcerpt = data.showExcerpt !== false;
     const showCategory = data.showCategory !== false;
     const showAllLink = data.showAllLink !== false;
+    const allLinkLabel = data.allLinkLabel ?? "View all projects →";
+    const allLinkHref = data.allLinkHref ?? "";
     const columns = parseInt(data.columns ?? 3, 10) || 3;
 
     const [posts, setPosts] = useState(() => window.__dropcmsPostsCache || []);
@@ -1232,6 +1234,18 @@ const CustomBlock = ({ block, editMode, content, setContent }) => {
               <input type="checkbox" checked={showAllLink} onChange={e => updateBlockData({ showAllLink: e.target.checked })} />
               Show "View all" link
             </label>
+            {showAllLink && (
+              <>
+                <label style={{ display: "flex", flexDirection: "column", gap: 4, gridColumn: "1 / -1" }}>
+                  <span style={{ fontSize: 10, color: theme.textMuted, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em" }}>Link label</span>
+                  <input type="text" value={allLinkLabel} onChange={e => updateBlockData({ allLinkLabel: e.target.value })} placeholder='View all projects →' style={inputStyle} />
+                </label>
+                <label style={{ display: "flex", flexDirection: "column", gap: 4, gridColumn: "1 / -1" }}>
+                  <span style={{ fontSize: 10, color: theme.textMuted, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em" }}>Link URL (empty = /projects)</span>
+                  <input type="text" value={allLinkHref} onChange={e => updateBlockData({ allLinkHref: e.target.value })} placeholder="/projects or https://example.com" style={inputStyle} />
+                </label>
+              </>
+            )}
           </div>
         )}
 
@@ -1327,27 +1341,49 @@ const CustomBlock = ({ block, editMode, content, setContent }) => {
           </div>
         )}
 
-        {showAllLink && !loading && displayPosts.length > 0 && (
-          <div style={{ textAlign: "center", marginTop: 32 }}>
-            <a
-              href={`${_basePath}/projects`}
-              onClick={e => { e.preventDefault(); navigateToProjects(); }}
-              style={{
-                display: "inline-block",
-                padding: "12px 28px",
-                background: "transparent",
-                border: `1px solid ${theme.accent}`,
-                borderRadius: 999,
-                color: theme.accent,
-                fontSize: 14, fontWeight: 600,
-                textDecoration: "none",
-                transition: "all 0.2s",
-              }}
-              onMouseEnter={e => { e.currentTarget.style.background = `${theme.accent}15`; }}
-              onMouseLeave={e => { e.currentTarget.style.background = "transparent"; }}
-            >View all projects →</a>
-          </div>
-        )}
+        {showAllLink && !loading && displayPosts.length > 0 && (() => {
+          const href = (allLinkHref || "").trim();
+          const isExternal = /^(https?:|mailto:|tel:)/i.test(href);
+          const resolvedHref = href || `${_basePath}/projects`;
+          const handleClick = (e) => {
+            if (editMode) { e.preventDefault(); return; }
+            if (isExternal) return; // let the browser handle it
+            e.preventDefault();
+            if (!href || href === `${_basePath}/projects` || href === "/projects") {
+              navigateToProjects();
+            } else if (href.startsWith("/")) {
+              // Internal SPA navigation — push and let the app re-read the URL
+              window.history.pushState({}, "", href);
+              window.dispatchEvent(new PopStateEvent("popstate"));
+              window.scrollTo(0, 0);
+            } else {
+              window.location.href = href;
+            }
+          };
+          return (
+            <div style={{ textAlign: "center", marginTop: 32 }}>
+              <a
+                href={resolvedHref}
+                target={isExternal ? "_blank" : undefined}
+                rel={isExternal ? "noopener noreferrer" : undefined}
+                onClick={handleClick}
+                style={{
+                  display: "inline-block",
+                  padding: "12px 28px",
+                  background: "transparent",
+                  border: `1px solid ${theme.accent}`,
+                  borderRadius: 999,
+                  color: theme.accent,
+                  fontSize: 14, fontWeight: 600,
+                  textDecoration: "none",
+                  transition: "all 0.2s",
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = `${theme.accent}15`; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "transparent"; }}
+              >{allLinkLabel || "View all projects →"}</a>
+            </div>
+          );
+        })()}
       </div>
     );
   }
