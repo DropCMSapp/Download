@@ -2,7 +2,7 @@
 // This file is synced across all DropCMS instances.
 // Site-specific code (UI_STRINGS, HomePage, etc.) lives in index.html.
 
-const DROPCMS_VERSION = "2.3.1";
+const DROPCMS_VERSION = "2.3.3";
 
 // ─── Error capture (buffered, sent with heartbeat) ──────────────────
 window.__dropcmsErrors = [];
@@ -6112,13 +6112,11 @@ function createApp({ UI_STRINGS, HomePage, AboutPage, Footer, SEO_DATA, siteUrl,
       let cancelled = false;
       const fetchWeather = async () => {
         try {
-          const geoRes = await fetch("https://ipapi.co/json/", { signal: AbortSignal.timeout(5000) });
-          const geo = await geoRes.json();
-          if (cancelled || !geo.latitude || !geo.longitude) return;
-
+          // Geolocation is resolved server-side from the visitor's IP (see admin-api.php weather case).
+          // This avoids browser-side services like ipapi.co getting rate-limited across all visitors.
           const weatherRes = await fetch(
-            `${API_URL}?action=weather&lat=${geo.latitude}&lon=${geo.longitude}`,
-            { signal: AbortSignal.timeout(5000) }
+            `${API_URL}?action=weather`,
+            { signal: AbortSignal.timeout(8000) }
           );
           const weather = await weatherRes.json();
           if (cancelled || !weather.condition) return;

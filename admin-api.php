@@ -324,6 +324,48 @@ switch ($action) {
         // Hero background fields are language-independent — always from EN
         $heroBgFields = ['bg_image', 'bg_video', 'overlay_dark', 'overlay_light'];
 
+        // Entire top-level sections that are language-independent (merged EN→SV
+        // on load, stripped from SV payload and synced to EN on save)
+        $sharedSections = ['branding', 'settings'];
+
+        // Individual nested paths that are language-independent
+        $sharedPaths = [
+            ['footer', 'address'],
+            ['footer', 'cert_image'],
+            ['footer', 'cert_link'],
+            ['about', 'cert_image'],
+            ['about', 'certifications'],
+        ];
+
+        // Helper: read a nested path from an array, returns null if any segment missing
+        $readPath = function($arr, $path) {
+            foreach ($path as $key) {
+                if (!is_array($arr) || !array_key_exists($key, $arr)) return null;
+                $arr = $arr[$key];
+            }
+            return $arr;
+        };
+        // Helper: write a nested path into an array (creates intermediate arrays)
+        $writePath = function(&$arr, $path, $value) {
+            $ref = &$arr;
+            $last = array_pop($path);
+            foreach ($path as $key) {
+                if (!isset($ref[$key]) || !is_array($ref[$key])) $ref[$key] = [];
+                $ref = &$ref[$key];
+            }
+            $ref[$last] = $value;
+        };
+        // Helper: unset a nested path
+        $unsetPath = function(&$arr, $path) {
+            $ref = &$arr;
+            $last = array_pop($path);
+            foreach ($path as $key) {
+                if (!isset($ref[$key]) || !is_array($ref[$key])) return;
+                $ref = &$ref[$key];
+            }
+            unset($ref[$last]);
+        };
+
         if ($method === 'GET') {
             $getLang = $_GET['lang'] ?? 'en';
             $enContent = readJson('content.json');
@@ -354,6 +396,17 @@ switch ($action) {
                             $svContent['hero'][$f] = $enContent['hero'][$f];
                         }
                     }
+                    // Inject EN shared sections (branding, settings) wholesale
+                    foreach ($sharedSections as $sec) {
+                        if (isset($enContent[$sec])) {
+                            $svContent[$sec] = $enContent[$sec];
+                        }
+                    }
+                    // Inject EN shared nested paths (footer.address, certs, etc.)
+                    foreach ($sharedPaths as $path) {
+                        $val = $readPath($enContent, $path);
+                        if ($val !== null) $writePath($svContent, $path, $val);
+                    }
                     jsonResponse($svContent);
                 }
             }
@@ -366,8 +419,8 @@ switch ($action) {
 
             $saveLang = $_GET['lang'] ?? 'en';
 
-            // When saving SV, strip hero bg fields (they live in EN only)
-            // But first: if SV payload has hero bg changes, apply them to EN content
+            // When saving SV: sync all language-independent fields to EN content,
+            // then strip them from the SV payload so content_sv.json stays lean.
             if ($saveLang === 'sv') {
                 $enContent = readJson('content.json');
                 if ($enContent) {
@@ -383,19 +436,37 @@ switch ($action) {
                         }
                     }
 
-                    // Always sync site_language setting to EN content
-                    if (isset($input['settings']['site_language'])) {
-                        if (!isset($enContent['settings'])) $enContent['settings'] = [];
-                        $enContent['settings']['site_language'] = $input['settings']['site_language'];
-                        $enChanged = true;
+                    // Sync shared sections (branding, settings) to EN wholesale
+                    foreach ($sharedSections as $sec) {
+                        if (array_key_exists($sec, $input)) {
+                            $enContent[$sec] = $input[$sec];
+                            $enChanged = true;
+                        }
+                    }
+
+                    // Sync shared nested paths to EN
+                    foreach ($sharedPaths as $path) {
+                        $val = $readPath($input, $path);
+                        if ($val !== null) {
+                            $writePath($enContent, $path, $val);
+                            $enChanged = true;
+                        }
                     }
 
                     if ($enChanged) writeJson('content.json', $enContent);
                 }
+
+                // Strip language-independent fields from the SV payload
                 if (isset($input['hero'])) {
                     foreach ($heroBgFields as $f) {
                         unset($input['hero'][$f]);
                     }
+                }
+                foreach ($sharedSections as $sec) {
+                    unset($input[$sec]);
+                }
+                foreach ($sharedPaths as $path) {
+                    $unsetPath($input, $path);
                 }
             }
 
@@ -771,13 +842,37 @@ switch ($action) {
     // ── Weather proxy (avoids exposing API key to client) ──────────
     case 'weather':
         if ($method !== 'GET') jsonResponse(['error' => 'GET required'], 405);
-        $lat = floatval($_GET['lat'] ?? 0);
-        $lon = floatval($_GET['lon'] ?? 0);
-        if ($lat == 0 && $lon == 0) jsonResponse(['error' => 'lat and lon required'], 400);
 
         $content = readJson('content.json') ?? [];
         $apiKey = $content['settings']['weather_api_key'] ?? '';
         if (!$apiKey) jsonResponse(['error' => 'Weather API key not configured'], 400);
+
+        $lat = floatval($_GET['lat'] ?? 0);
+        $lon = floatval($_GET['lon'] ?? 0);
+
+        // If no coordinates provided, resolve them server-side from the visitor's IP.
+        // This avoids browser-side geolocation services (e.g. ipapi.co) getting
+        // rate-limited across all visitors from the same public IP.
+        if ($lat == 0 && $lon == 0) {
+            $ip = $_SERVER['HTTP_CF_CONNECTING_IP']
+                ?? $_SERVER['HTTP_X_FORWARDED_FOR']
+                ?? $_SERVER['REMOTE_ADDR']
+                ?? '';
+            if (strpos($ip, ',') !== false) $ip = trim(explode(',', $ip)[0]);
+
+            if ($ip && filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)) {
+                $geoCtx = stream_context_create(['http' => ['timeout' => 4, 'ignore_errors' => true]]);
+                $geoResult = @file_get_contents('http://ip-api.com/json/' . urlencode($ip) . '?fields=status,lat,lon,city', false, $geoCtx);
+                if ($geoResult !== false) {
+                    $geoData = json_decode($geoResult, true);
+                    if (($geoData['status'] ?? '') === 'success') {
+                        $lat = floatval($geoData['lat'] ?? 0);
+                        $lon = floatval($geoData['lon'] ?? 0);
+                    }
+                }
+            }
+            if ($lat == 0 && $lon == 0) jsonResponse(['error' => 'Could not determine location from IP'], 400);
+        }
 
         $url = 'https://api.openweathermap.org/data/2.5/weather?lat=' . urlencode($lat) . '&lon=' . urlencode($lon) . '&appid=' . urlencode($apiKey);
         $ctx = stream_context_create(['http' => ['timeout' => 5, 'ignore_errors' => true]]);
@@ -789,8 +884,10 @@ switch ($action) {
         $desc = $data['weather'][0]['description'] ?? '';
         $icon = $data['weather'][0]['icon'] ?? '';
         $city = $data['name'] ?? '';
+        // OpenWeatherMap icons end in 'n' at night, 'd' during day
+        $isNight = strlen($icon) > 0 && substr($icon, -1) === 'n';
 
-        jsonResponse(['condition' => $main, 'description' => $desc, 'icon' => $icon, 'city' => $city]);
+        jsonResponse(['condition' => $main, 'description' => $desc, 'icon' => $icon, 'city' => $city, 'is_night' => $isNight]);
         break;
 
     // ── Platform: Heartbeat (admin-only, sends status to control panel) ──
