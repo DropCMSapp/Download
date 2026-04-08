@@ -2,7 +2,7 @@
 // This file is synced across all DropCMS instances.
 // Site-specific code (UI_STRINGS, HomePage, etc.) lives in index.html.
 
-const DROPCMS_VERSION = "2.3.3";
+const DROPCMS_VERSION = "2.3.4";
 
 // ─── Error capture (buffered, sent with heartbeat) ──────────────────
 window.__dropcmsErrors = [];
@@ -466,6 +466,7 @@ const AddBlockInserter = ({ position, editMode, content, setContent }) => {
               { label: "Tabs", type: "tabs" },
               { label: "Divider", type: "divider" },
               { label: "Gallery Grid", type: "gallery" },
+              { label: "Projects Showcase", type: "projects_teaser" },
             ].map((option, idx) => (
               <button
                 key={option.type}
@@ -1107,6 +1108,245 @@ const CustomBlock = ({ block, editMode, content, setContent }) => {
               } catch (err) { console.error("Upload failed", err); }
             }} />
           </label>
+        )}
+      </div>
+    );
+  }
+
+  // ─── Projects Showcase block (teaser grid linking to full posts) ───
+  if (block.type === "projects_teaser") {
+    const data = block.data || {};
+    const title = data.title ?? "Selected Projects";
+    const subtitle = data.subtitle ?? "";
+    const limit = parseInt(data.limit ?? 3, 10) || 3;
+    const categoryFilter = data.category ?? "";
+    const sortOrder = data.sort ?? "newest";
+    const showExcerpt = data.showExcerpt !== false;
+    const showCategory = data.showCategory !== false;
+    const showAllLink = data.showAllLink !== false;
+    const columns = parseInt(data.columns ?? 3, 10) || 3;
+
+    const [posts, setPosts] = useState(() => window.__dropcmsPostsCache || []);
+    const [loading, setLoading] = useState(!window.__dropcmsPostsCache);
+
+    useEffect(() => {
+      if (window.__dropcmsPostsCache) { setPosts(window.__dropcmsPostsCache); setLoading(false); return; }
+      let cancelled = false;
+      (async () => {
+        try {
+          const res = await fetch(`${API_URL}?action=posts`, { credentials: "include" });
+          const json = await res.json();
+          const list = Array.isArray(json) ? json : [];
+          window.__dropcmsPostsCache = list;
+          if (!cancelled) { setPosts(list); setLoading(false); }
+        } catch (e) {
+          if (!cancelled) setLoading(false);
+        }
+      })();
+      return () => { cancelled = true; };
+    }, []);
+
+    // Available categories from content.projects.categories (if defined) or derived from posts
+    const availableCategories = (content?.projects?.categories || []).map(c => ({ id: c.id, title: c.title }));
+    const derivedCategories = [...new Set(posts.map(p => p.category).filter(Boolean))]
+      .filter(id => !availableCategories.find(c => c.id === id))
+      .map(id => ({ id, title: id }));
+    const allCategories = [...availableCategories, ...derivedCategories];
+
+    // Filter, sort, limit
+    let filtered = posts.filter(p => p.published !== false);
+    if (categoryFilter) filtered = filtered.filter(p => p.category === categoryFilter);
+    filtered = [...filtered].sort((a, b) => {
+      const da = new Date(a.created_at || 0).getTime();
+      const db = new Date(b.created_at || 0).getTime();
+      return sortOrder === "oldest" ? da - db : db - da;
+    });
+    const displayPosts = filtered.slice(0, limit);
+
+    const navigateToProject = (slug) => {
+      if (editMode) return;
+      window.__projectSlug = slug;
+      window.history.pushState({}, "", `${_basePath}/projects/${slug}`);
+      window.dispatchEvent(new PopStateEvent("popstate"));
+      window.scrollTo(0, 0);
+    };
+    const navigateToProjects = () => {
+      if (editMode) return;
+      window.__projectSlug = null;
+      window.history.pushState({}, "", `${_basePath}/projects`);
+      window.dispatchEvent(new PopStateEvent("popstate"));
+      window.scrollTo(0, 0);
+    };
+
+    const inputStyle = {
+      background: "rgba(148,163,184,0.08)", color: theme.white,
+      border: `1px solid ${theme.border}`, borderRadius: 6,
+      padding: "6px 10px", fontSize: 12, outline: "none",
+      fontFamily: "'DM Sans', sans-serif",
+    };
+
+    return (
+      <div style={{ ...commonWrapperStyle, padding: editMode ? 20 : 0 }}>
+        {BlockControls}
+
+        {editMode && (
+          <div style={{
+            display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))",
+            gap: 8, marginBottom: 16, padding: 12,
+            background: "rgba(34,211,238,0.04)", border: `1px solid ${theme.accent}22`, borderRadius: 8,
+          }}>
+            <label style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+              <span style={{ fontSize: 10, color: theme.textMuted, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em" }}>Limit</span>
+              <select value={limit} onChange={e => updateBlockData({ limit: parseInt(e.target.value, 10) })} style={inputStyle}>
+                <option value={3}>3</option><option value={4}>4</option><option value={6}>6</option><option value={9}>9</option>
+              </select>
+            </label>
+            <label style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+              <span style={{ fontSize: 10, color: theme.textMuted, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em" }}>Columns</span>
+              <select value={columns} onChange={e => updateBlockData({ columns: parseInt(e.target.value, 10) })} style={inputStyle}>
+                <option value={2}>2</option><option value={3}>3</option><option value={4}>4</option>
+              </select>
+            </label>
+            <label style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+              <span style={{ fontSize: 10, color: theme.textMuted, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em" }}>Category</span>
+              <select value={categoryFilter} onChange={e => updateBlockData({ category: e.target.value })} style={inputStyle}>
+                <option value="">All</option>
+                {allCategories.map(c => <option key={c.id} value={c.id}>{c.title}</option>)}
+              </select>
+            </label>
+            <label style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+              <span style={{ fontSize: 10, color: theme.textMuted, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em" }}>Sort</span>
+              <select value={sortOrder} onChange={e => updateBlockData({ sort: e.target.value })} style={inputStyle}>
+                <option value="newest">Newest first</option><option value="oldest">Oldest first</option>
+              </select>
+            </label>
+            <label style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 11, color: theme.textMuted, cursor: "pointer" }}>
+              <input type="checkbox" checked={showExcerpt} onChange={e => updateBlockData({ showExcerpt: e.target.checked })} />
+              Show excerpt
+            </label>
+            <label style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 11, color: theme.textMuted, cursor: "pointer" }}>
+              <input type="checkbox" checked={showCategory} onChange={e => updateBlockData({ showCategory: e.target.checked })} />
+              Show category tag
+            </label>
+            <label style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 11, color: theme.textMuted, cursor: "pointer" }}>
+              <input type="checkbox" checked={showAllLink} onChange={e => updateBlockData({ showAllLink: e.target.checked })} />
+              Show "View all" link
+            </label>
+          </div>
+        )}
+
+        <div style={{ textAlign: "center", marginBottom: 32 }}>
+          <EditableText
+            value={title}
+            onChange={v => updateBlockData({ title: v })}
+            editMode={editMode}
+            tag="h2"
+            className="serif"
+            style={{ fontSize: "clamp(28px, 4vw, 40px)", fontStyle: "italic", color: theme.white, lineHeight: 1.2, marginBottom: subtitle || editMode ? 12 : 0 }}
+          />
+          {(subtitle || editMode) && (
+            <EditableText
+              value={subtitle}
+              onChange={v => updateBlockData({ subtitle: v })}
+              editMode={editMode}
+              tag="p"
+              style={{ fontSize: 16, color: theme.textMuted, maxWidth: 560, margin: "0 auto" }}
+            />
+          )}
+        </div>
+
+        {loading ? (
+          <div style={{ textAlign: "center", padding: "40px 0", color: theme.textMuted, fontSize: 14 }}>Loading projects…</div>
+        ) : displayPosts.length === 0 ? (
+          <div style={{ textAlign: "center", padding: "40px 0", color: theme.textMuted, fontSize: 14 }}>
+            No projects to show{categoryFilter ? ` in "${categoryFilter}"` : ""}.
+          </div>
+        ) : (
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: `repeat(auto-fit, minmax(${columns >= 4 ? 220 : 280}px, 1fr))`,
+            gap: 20,
+          }}>
+            {displayPosts.map(post => {
+              const img = post.imageUrl || post.image || (post.images && post.images[0]) || "";
+              const categoryDef = allCategories.find(c => c.id === post.category);
+              const categoryLabel = categoryDef ? categoryDef.title : post.category;
+              return (
+                <div
+                  key={post.id || post.slug}
+                  onClick={() => navigateToProject(post.slug)}
+                  style={{
+                    background: theme.bgCard,
+                    border: `1px solid ${theme.border}`,
+                    borderRadius: 14,
+                    overflow: "hidden",
+                    cursor: editMode ? "default" : "pointer",
+                    transition: "transform 0.2s, border-color 0.2s, box-shadow 0.2s",
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                  onMouseEnter={e => { if (!editMode) { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.borderColor = `${theme.accent}55`; e.currentTarget.style.boxShadow = `0 12px 28px rgba(0,0,0,0.25)`; } }}
+                  onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.borderColor = theme.border; e.currentTarget.style.boxShadow = "none"; }}
+                >
+                  {img && (
+                    <div style={{ width: "100%", aspectRatio: "16/10", background: theme.bg, overflow: "hidden" }}>
+                      <img src={img} alt={post.title || ""} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                    </div>
+                  )}
+                  <div style={{ padding: 18, display: "flex", flexDirection: "column", gap: 8, flex: 1 }}>
+                    {showCategory && categoryLabel && (
+                      <span style={{
+                        alignSelf: "flex-start",
+                        fontSize: 10, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em",
+                        color: theme.accent,
+                        background: `${theme.accent}15`,
+                        padding: "4px 8px", borderRadius: 4,
+                      }}>{categoryLabel}</span>
+                    )}
+                    <h3 style={{
+                      fontSize: 17, fontWeight: 600, color: theme.white,
+                      margin: 0, lineHeight: 1.3,
+                      display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
+                    }}>{post.title || "Untitled"}</h3>
+                    {showExcerpt && post.excerpt && (
+                      <p style={{
+                        fontSize: 13, lineHeight: 1.55, color: theme.textMuted, margin: 0,
+                        display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
+                      }}>{post.excerpt}</p>
+                    )}
+                    <span style={{
+                      marginTop: "auto", paddingTop: 8, fontSize: 12, fontWeight: 600,
+                      color: theme.accent,
+                    }}>Read more →</span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        {showAllLink && !loading && displayPosts.length > 0 && (
+          <div style={{ textAlign: "center", marginTop: 32 }}>
+            <a
+              href={`${_basePath}/projects`}
+              onClick={e => { e.preventDefault(); navigateToProjects(); }}
+              style={{
+                display: "inline-block",
+                padding: "12px 28px",
+                background: "transparent",
+                border: `1px solid ${theme.accent}`,
+                borderRadius: 999,
+                color: theme.accent,
+                fontSize: 14, fontWeight: 600,
+                textDecoration: "none",
+                transition: "all 0.2s",
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = `${theme.accent}15`; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "transparent"; }}
+            >View all projects →</a>
+          </div>
         )}
       </div>
     );
