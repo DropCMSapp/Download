@@ -2,7 +2,7 @@
 // This file is synced across all DropCMS instances.
 // Site-specific code (UI_STRINGS, HomePage, etc.) lives in index.html.
 
-const DROPCMS_VERSION = "2.3.6";
+const DROPCMS_VERSION = "2.3.7";
 
 // ─── Error capture (buffered, sent with heartbeat) ──────────────────
 window.__dropcmsErrors = [];
@@ -338,11 +338,13 @@ const EditableButton = ({
         {children}
       </BtnComponent>
       {showEditor && (
+        <>
+        <div onClick={() => setShowEditor(false)} style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, zIndex: 8999, background: "rgba(0,0,0,0.3)" }} />
         <div style={{
-          position: "absolute", top: "100%", left: 0, marginTop: 8,
+          position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)",
           background: theme.bgCard, border: `1px solid ${theme.border}`,
-          borderRadius: 12, padding: 16, zIndex: 200, minWidth: 280,
-          boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
+          borderRadius: 12, padding: 20, zIndex: 9000, minWidth: 300, maxWidth: 360,
+          boxShadow: "0 8px 32px rgba(0,0,0,0.5)",
         }}>
           <div style={{ fontSize: 12, color: theme.textMuted, marginBottom: 8, fontWeight: 600 }}>EDIT BUTTON</div>
           <div style={{ marginBottom: 10 }}>
@@ -374,6 +376,7 @@ const EditableButton = ({
           </div>
           <button onClick={() => setShowEditor(false)} style={{ marginTop: 10, background: theme.accent, color: theme.bg, border: "none", padding: "6px 16px", borderRadius: 6, cursor: "pointer", fontSize: 12, fontWeight: 600 }}>Done</button>
         </div>
+        </>
       )}
     </div>
   );
@@ -1695,7 +1698,8 @@ const GridBg = () => (
 
 // ─── Navigation ──────────────────────────────────────────────────────
 const Nav = ({ page, setPage, onToggleTheme, currentThemeMode, lang, setLang, t, content, editMode, setContent }) => {
-  const showLangToggle = content?.settings?.showLanguageToggle !== false;
+  const siteLanguage = content?.settings?.site_language || (content?.settings?.showLanguageToggle === false ? 'en' : 'both');
+  const showLangToggle = siteLanguage === 'both';
   const brandName = content?.branding?.site_name || t("site_name") || "DropCMS";
   const brandLogo = content?.branding?.logo_url || "";
   const updateBranding = (key, value) => {
@@ -2279,7 +2283,7 @@ const PageHero = ({ children, bgKey, content: phContent, editMode: phEdit, updat
       background: theme.mode === "dark"
         ? "linear-gradient(180deg, rgba(10,15,26,0.7) 0%, rgba(10,15,26,0.85) 60%, rgba(10,15,26,0.95) 100%)"
         : "linear-gradient(180deg, rgba(245,247,250,0.65) 0%, rgba(245,247,250,0.8) 60%, rgba(245,247,250,0.95) 100%)",
-      zIndex: 0,
+      zIndex: 0, pointerEvents: "none",
     }} />
   ) : null;
   return (
@@ -3863,32 +3867,35 @@ const AdminSettingsPanel = ({ open, onClose, content, setContent }) => {
           </div>
         </div>
 
-        {/* Language Toggle Visibility */}
+        {/* Site Language */}
         <div style={{ marginBottom: 28 }}>
           <div style={{
             fontSize: 13, fontWeight: 600, color: theme.accent,
             textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 12,
           }}>Language</div>
-          <label style={{ display: "flex", alignItems: "center", gap: 12, cursor: "pointer" }}>
-            <div
-              onClick={() => update("showLanguageToggle", !(c("showLanguageToggle", true) !== false))}
-              style={{
-                width: 40, height: 22, borderRadius: 11, position: "relative",
-                background: c("showLanguageToggle", true) !== false ? theme.accent : "rgba(148,163,184,0.3)",
-                transition: "background 0.2s", cursor: "pointer",
-              }}
-            >
-              <div style={{
-                width: 16, height: 16, borderRadius: "50%", background: "#fff",
-                position: "absolute", top: 3,
-                left: c("showLanguageToggle", true) !== false ? 21 : 3,
-                transition: "left 0.2s",
-              }} />
-            </div>
-            <span style={{ fontSize: 13, fontWeight: 500, color: theme.textLight }}>Show language toggle</span>
-          </label>
+          <div style={{ display: "flex", gap: 0, borderRadius: 8, overflow: "hidden", border: `1px solid ${theme.border}` }}>
+            {[
+              { value: "sv", label: "Svenska" },
+              { value: "en", label: "English" },
+              { value: "both", label: "Both (SV/EN)" },
+            ].map(opt => (
+              <button
+                key={opt.value}
+                onClick={() => update("site_language", opt.value)}
+                style={{
+                  flex: 1, padding: "8px 12px", border: "none", cursor: "pointer",
+                  fontSize: 12, fontWeight: 600, fontFamily: "'DM Sans', sans-serif",
+                  background: (c("site_language", "both")) === opt.value ? theme.accent : "transparent",
+                  color: (c("site_language", "both")) === opt.value ? "#fff" : theme.textLight,
+                  transition: "all 0.2s",
+                }}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
           <p style={{ fontSize: 11, color: theme.textMuted, marginTop: 6, lineHeight: 1.5 }}>
-            Controls whether the EN/SV language toggle is visible in the navigation bar. Swedish content is always accessible via the ?lang=sv URL parameter regardless of this setting.
+            Choose "Svenska" or "English" for a single-language site, or "Both" to show the language toggle in the navigation.
           </p>
         </div>
 
@@ -5552,7 +5559,7 @@ const ProjectsPage = ({ adminLoggedIn, onEditPost, onDeletePost, editMode = fals
 
       {/* Admin: add new category section */}
       {editMode && (
-        <Section style={{ paddingTop: 0, paddingBottom: 60 }}>
+        <Section style={{ paddingTop: categories.length === 0 ? 120 : 0, paddingBottom: 60 }}>
           <button
             onClick={addCategory}
             style={{
@@ -6304,6 +6311,13 @@ function createApp({ UI_STRINGS, HomePage, AboutPage, Footer, SEO_DATA, siteUrl,
       try { localStorage.setItem('gc_lang', lang); } catch {}
     }, [lang]);
 
+    // Enforce site_language setting once content loads
+    useEffect(() => {
+      const sl = content?.settings?.site_language;
+      if (sl === 'en' && lang !== 'en') setLang('en');
+      if (sl === 'sv' && lang !== 'sv') setLang('sv');
+    }, [content?.settings?.site_language]);
+
     // ─── Theme system ───────────────────────────────────────────────
     const VISITOR_THEME_KEY = "dropcms_theme_mode";
     const getStoredVisitorTheme = () => {
@@ -6478,6 +6492,10 @@ function createApp({ UI_STRINGS, HomePage, AboutPage, Footer, SEO_DATA, siteUrl,
       setAdminNoIndex(adminLoggedIn);
     }, [adminLoggedIn]);
 
+    useEffect(() => {
+      document.documentElement.lang = lang;
+    }, [lang]);
+
     const handleAcceptCookies = () => {
       setCookieConsent("accepted");
       try { localStorage.setItem(CONSENT_KEY, "accepted"); } catch (e) {}
@@ -6552,8 +6570,10 @@ function createApp({ UI_STRINGS, HomePage, AboutPage, Footer, SEO_DATA, siteUrl,
       }
 
       const onPopState = () => {
-        setPageState(pageFromPath());
+        const pg = pageFromPath();
+        setPageState(pg);
         setProjectSlug(window.__projectSlug || null);
+        updateSeoMeta(pg);
         window.scrollTo(0, 0);
       };
       window.addEventListener("popstate", onPopState);
@@ -6706,6 +6726,23 @@ function createApp({ UI_STRINGS, HomePage, AboutPage, Footer, SEO_DATA, siteUrl,
       window.location.hash = "#admin";
     }
 
+    // Demo mode: auto-login + edit mode + show demo banner
+    const [demoMode, setDemoMode] = useState(false);
+    useEffect(() => {
+      fetch(`${API_URL}?action=auth-check`, { credentials: "include" })
+        .then(r => r.json())
+        .then(data => {
+          if (data.demo_mode) {
+            setDemoMode(true);
+            if (!adminLoggedIn) {
+              setAdminLoggedIn(true);
+              setEditMode(true);
+              if (window.location.hash !== "#admin") window.location.hash = "#admin";
+            }
+          }
+        }).catch(() => {});
+    }, []);
+
     // Mount AdminLogin for #admin AND for #reset=<64-hex-token> (password-reset
     // email links). Before 2.3.6 the reset link dropped the visitor on the public
     // homepage and the reset form never mounted — broken flow for anyone who
@@ -6724,6 +6761,20 @@ function createApp({ UI_STRINGS, HomePage, AboutPage, Footer, SEO_DATA, siteUrl,
       <div className="noise" style={{ minHeight: "100vh", position: "relative" }}>
         <GridBg />
         <Nav page={page} setPage={setPage} onToggleTheme={toggleVisitorTheme} currentThemeMode={theme.mode} lang={lang} setLang={handleLangChange} t={t} content={content} editMode={editMode} setContent={setContent} />
+        {demoMode && (
+          <div style={{
+            position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 9998,
+            background: "linear-gradient(135deg, #f59e0b, #d97706)", color: "#000",
+            padding: "8px 20px", display: "flex", justifyContent: "center", alignItems: "center", gap: 16,
+            fontSize: 13, fontWeight: 600,
+          }}>
+            <span>DEMO MODE — Feel free to edit everything!</span>
+            <a href="https://dropcms.app/signup.html" target="_blank" style={{
+              background: "#000", color: "#f59e0b", padding: "4px 14px", borderRadius: 6,
+              fontSize: 12, fontWeight: 700, textDecoration: "none",
+            }}>Create Your Own Site</a>
+          </div>
+        )}
         <main style={{ position: "relative", zIndex: 1 }}>
           {page === PAGES.HOME && <HomePage setPage={setPage} editMode={editMode} content={content} setContent={setContent} t={t} weatherVideoUrl={weatherVideoUrl} {...extraProps} />}
           {page === PAGES.ABOUT && <AboutPage setPage={setPage} editMode={editMode} content={content} setContent={setContent} t={t} />}
